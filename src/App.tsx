@@ -18,7 +18,14 @@ function App() {
         <div className="h-dvh"></div>
 
       {/* </div> */}
-      <Title />
+      <Title text="hello bbalz" elementId="Balz"/>
+        <div className="h-dvh"></div>
+        <Title text="About me" elementId="AboutMeTitle"/>
+        <div className="h-dvh"></div>
+        <Title text="Projects" elementId="ProjectsTitle"/>
+        <div className="h-dvh"></div>
+        <Title text="Work Experience" elementId="WorkExperienceTitle"/>
+        <div className="h-dvh"></div>
     </>
   )
 }

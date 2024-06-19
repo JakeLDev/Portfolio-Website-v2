@@ -1,10 +1,16 @@
 import React from 'react';
 
-const Title = () => {
+interface TitleProps {
+    text: string;
+    elementId: string;
+}
+
+// add react prop for text
+const Title = ({ text, elementId }: TitleProps) => {
     return (
         <div>
-        <h1 id="test2" className="text-3xl font-bold underline">
-            Hello world! ballz
+        <h1 id={elementId} className="text-3xl font-bold underline">
+            {text}
         </h1>
         </div>
     );
