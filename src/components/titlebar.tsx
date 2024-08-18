@@ -30,8 +30,8 @@ const TitleBar = () => {
     return (
         <>
             <div className="flex justify-center p-2">
-                <Tabs className="fixed" key="md" size="md" radius="full" color="secondary" variant='solid' aria-label="Tabs sizes">
-                    <Tab data-tab-id="Home" key="Home" title="Home"/>
+                <Tabs className="fixed m-2" key="md" size="md" radius="full" color="secondary" variant='solid' aria-label="Tabs sizes">
+                    <Tab data-tab-id="Page" key="Home" title="Home"/>
                     <Tab data-tab-id="AboutMeTitle" key="About Me" title="About Me"/>
                     <Tab data-tab-id="ProjectsTitle" key="Projects" title="Projects"/>
                     <Tab data-tab-id="WorkExperienceTitle" key="Work Experience" title="Work Experience"/>

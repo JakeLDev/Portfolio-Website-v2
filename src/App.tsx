@@ -9,8 +9,8 @@ function App() {
 
   return (
     <>
-      <div className="flex justify-center">
-        <div className="min-w-[50%] max-w-4xl justify-self-center">
+      <div id="Page" className="flex justify-center">
+        <div className="min-w-[70%] max-w-4xl justify-self-center">
           <TitleBar />
             {/* <h1 className="text-3xl font-bold underline">
             Hello world!

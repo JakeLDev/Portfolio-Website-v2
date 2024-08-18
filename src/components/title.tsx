@@ -9,7 +9,7 @@ interface TitleProps {
 const Title = ({ text, elementId }: TitleProps) => {
     return (
         <div>
-        <h1 id={elementId} className="text-3xl font-bold underline">
+        <h1 id={elementId} className="text-3xl font-bold underline pt-14">
             {text}
         </h1>
         </div>
