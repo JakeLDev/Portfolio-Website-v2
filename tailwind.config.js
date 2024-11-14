@@ -10,7 +10,11 @@ export default {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'atlassian-blue': '#0052CC',
+      },
+    },
   },
   darkMode: "class",
   plugins: [nextui()]
