@@ -17,8 +17,20 @@ const Home = () => {
                 
                 {/* stolen the below, fix it up */}
                 <div id='button-container' className='flex flex-row items-center justify-center gap-2 px-4 text-lg font-medium'>
-                    <a id='github-button' href='' className='group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-105 active:scale-105 transition cursor-pointer borderBlack text-gray-950'>GitHub</a>
-                    <a className="group bg-gray-950 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 hover:text-white active:scale-105 transition border-2 border-white border-opacity-40" href="https://www.linkedin.com/in//" target="_blank"><span className="opacity-70">LinkedIn</span></a>
+                    <a id='github-button' 
+                        href='https://github.com/JakeLDev' 
+                        className='group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-105 active:scale-105 transition cursor-pointer borderBlack text-gray-950' 
+                        target='_blank' 
+                        rel="noreferrer noopener">
+                        GitHub
+                    </a>
+                    <a id='linkedin-button' 
+                        href="https://www.linkedin.com/in/jake-lyell/" 
+                        className="group bg-gray-950 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-105 hover:text-white active:scale-105 transition border-2 border-white border-opacity-40" 
+                        target="_blank"
+                        rel="noreferrer noopener">
+                        <span className="opacity-70">LinkedIn</span>
+                    </a>
                 </div>
                 
                 </div>

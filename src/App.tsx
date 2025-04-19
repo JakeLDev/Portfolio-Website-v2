@@ -3,6 +3,8 @@ import Title from './components/title'
 import './App.css'
 import TitleBar from './components/titlebar'
 import Home from './sections/home'
+import AboutMe from './sections/aboutMe'
+import Projects from './sections/projects'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -20,8 +22,10 @@ function App() {
           <div className="h-dvh"></div>
 
           <Title text="About me" elementId="AboutMeTitle"/>
+          <AboutMe />
           <div className="h-dvh"></div>
           <Title text="Projects" elementId="ProjectsTitle"/>
+          <Projects />
           <div className="h-dvh"></div>
           <Title text="Work Experience" elementId="WorkExperienceTitle"/>
           <div className="h-dvh"></div>
