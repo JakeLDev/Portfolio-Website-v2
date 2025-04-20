@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Box, Flex, Container } from '@chakra-ui/react'
 import Title from './components/title'
 import './App.css'
 import TitleBar from './components/titlebar'
@@ -11,26 +12,26 @@ function App() {
 
   return (
     <>
-      <div id="Page" className="flex justify-center">
-        <div className="min-w-[70%] max-w-4xl justify-self-center">
+      <Flex id="Page" justify="center">
+        <Container centerContent minW="70%" maxW="4xl">
           <TitleBar />
             {/* <h1 className="text-3xl font-bold underline">
             Hello world!
           </h1> */}
 
           <Home />
-          <div className="h-dvh"></div>
+          <Box h="100vh"></Box>
 
           <Title text="About me" elementId="AboutMeTitle"/>
           <AboutMe />
-          <div className="h-dvh"></div>
+          <Box h="100vh"></Box>
           <Title text="Projects" elementId="ProjectsTitle"/>
           <Projects />
-          <div className="h-dvh"></div>
+          <Box h="100vh"></Box>
           <Title text="Work Experience" elementId="WorkExperienceTitle"/>
-          <div className="h-dvh"></div>
-        </div>
-      </div>
+          <Box h="100vh"></Box>
+        </Container>
+      </Flex>
     </>
   )
 }

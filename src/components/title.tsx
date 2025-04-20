@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box, Heading } from '@chakra-ui/react';
 
 interface TitleProps {
     text: string;
@@ -8,11 +9,11 @@ interface TitleProps {
 // add react prop for text
 const Title = ({ text, elementId }: TitleProps) => {
     return (
-        <div>
-        <h1 id={elementId} className="text-3xl font-bold underline pt-14">
+        <Box>
+        <Heading as="h1" id={elementId} size="xl" fontWeight="bold" textDecoration="underline" pt="14">
             {text}
-        </h1>
-        </div>
+        </Heading>
+        </Box>
     );
 }
 

@@ -1,40 +1,82 @@
 import React from 'react';
+import { Box, Text, Flex, Link, Center, Image, Button } from '@chakra-ui/react';
 import Title from '../components/title';
+import LinkedInPFP from '../assets/LinkedinPFP-square.jpg';
+import GithubButton from '../components/githubButton';
 
 const Home = () => {
-
+    // const { toggleColorMode } = useColorMode();
     return (
         <>
-            <div className='pt-56'>
+            <Box pt="56">
                 {/* <img className="h-48 w-48 rounded-full object-cover border-[0.30rem] border-white shadow-xl m-auto" src={LinkedInPFP} alt="Profile Picture" /> */}
-                <div className="">
+                <Box>
+                {/* <ColorModeButton /> */}
+                {/* <Button variant="outline" onClick={toggleColorMode}>
+                Toggle Mode
+                </Button> */}
                 
                 {/* Icon Profile Picture */}
-                <div className='p-8'>
-                    <p className="text-center w-4/5 max-w-2xl text-3xl font-bold mx-auto leading-[2] ">Hello! I'm Jake :)</p>
-                    <p className="text-center w-4/5 max-w-2xl text-3xl font-bold mx-auto leading-[1.5]">I'm a Software Engineer at <a className="text-atlassian-blue secret-link font-extrabold [text-shadow:1px_1px_1px_rgb(255,255,255),-1px_1px_1px_rgb(255,255,255),-1px_-1px_1px_rgb(255,255,255),1px_-1px_1px_rgb(255,255,255)]" href='https://www.atlassian.com/' target="_blank">Atlassian</a> in Sydney, Australia. I'm currently working with React, Typescript and Java.</p>
-                </div>
+                <Box p="8">
+                    <Center>
+                        <Image 
+                            src={ LinkedInPFP }
+                            alt="Profile Picture"
+                            height="250px"
+                            margin={"20px"}
+                        />
+                    </Center>
+                    <Text textAlign="center" width="80%" maxW="2xl" fontSize="4xl" fontWeight="bold" mx="auto" lineHeight="2">
+                        Hello! I'm Jake :)
+                    </Text>
+                    <Text textAlign="center" width="80%" maxW="2xl" fontSize="3xl" fontWeight="bold" mx="auto" lineHeight="1.5">
+                        I'm a Software Engineer at{' '}
+                        <Link 
+                            color="#0052CC" 
+                            fontWeight="extrabold"
+                            textShadow="1px 1px 1px white, -1px 1px 1px white, -1px -1px 1px white, 1px -1px 1px white"
+                            href='https://www.atlassian.com/' 
+                            target="_blank"
+                        >
+                            Atlassian
+                        </Link>
+                        {' '}in Sydney, Australia. I'm currently working with React, Typescript and Java.
+                    </Text>
+                </Box>
                 
-                {/* stolen the below, fix it up */}
-                <div id='button-container' className='flex flex-row items-center justify-center gap-2 px-4 text-lg font-medium'>
-                    <a id='github-button' 
-                        href='https://github.com/JakeLDev' 
-                        className='group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-105 active:scale-105 transition cursor-pointer borderBlack text-gray-950' 
-                        target='_blank' 
-                        rel="noreferrer noopener">
-                        GitHub
-                    </a>
-                    <a id='linkedin-button' 
-                        href="https://www.linkedin.com/in/jake-lyell/" 
-                        className="group bg-gray-950 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-105 hover:text-white active:scale-105 transition border-2 border-white border-opacity-40" 
+                {/* Social Links */}
+                <Flex id='button-container' flexDir="row" alignItems="center" justifyContent="center" gap="2" px="4" fontSize="lg" fontWeight="medium">
+                    <GithubButton
+                        githubLink='https://github.com/JakeLDev'
+                        text='GitHub'
+                        elementId='github-button'
+                    />
+                    <Link 
+                        id='linkedin-button' 
+                        href="https://www.linkedin.com/in/jake-lyell/"
+                        bg="blue.500"
+                        color="white"
+                        px="7"
+                        py="3"
+                        display="flex"
+                        alignItems="center"
+                        gap="2"
+                        borderRadius="full"
+                        outline="none"
+                        _focus={{ transform: 'scale(1.1)' }}
+                        _hover={{ transform: 'scale(1.05)', color: 'purple.200' }}
+                        _active={{ transform: 'scale(1.05)' }}
+                        transition="all 0.2s"
+                        borderWidth="2px"
+                        borderColor="blue.600"
                         target="_blank"
-                        rel="noreferrer noopener">
-                        <span className="opacity-70">LinkedIn</span>
-                    </a>
-                </div>
+                    >
+                        LinkedIn
+                    </Link>
+                </Flex>
                 
-                </div>
-            </div>
+                </Box>
+            </Box>
         </>
     );
 }

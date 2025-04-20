@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",
+      "module": "ESNext",
+      "composite": true,
+      "moduleResolution": "Bundler",
+      "skipLibCheck": true,
+      "jsx": "react-jsx",
+      "paths": {
+        "@/*": ["./src/*"]
+      }
+    }
+  }

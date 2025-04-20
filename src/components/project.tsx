@@ -1,4 +1,6 @@
 import React from 'react';
+import { Box, Heading, Text, Flex, Button, Link } from '@chakra-ui/react';
+import GithubButton from './githubButton';
 
 interface ProjectProps {
     title: string;
@@ -7,6 +9,7 @@ interface ProjectProps {
     githubLink?: string;
     liveLink?: string;
     image?: string;
+    imageHeight?: string;
     linkedinLink?: string;
 }
 
@@ -17,41 +20,80 @@ const Project = ({ title,
                     githubLink,
                     liveLink,
                     image,
+                    imageHeight = "300px",
                     linkedinLink }: ProjectProps) => {
     return (
-        <div>
-        <h1 id={elementId} className="text-3xl font-bold underline pt-14">
+        <Box border={"1px solid"} borderColor="gray.200" borderRadius="lg" p="8" mb="8" boxShadow="md">
+        <Heading as="h1" id={elementId} size="xl" fontWeight="bold" textDecoration="underline">
             {title}
-        </h1>
-        <p className="text-lg font-medium pt-4">
+        </Heading>
+        {image && 
+            <Box pt="4">
+                <img src={image} alt={title} style={{ maxWidth: '100%', maxHeight: imageHeight, borderRadius: '8px' }} />
+            </Box>
+        }
+        <Text fontSize="lg" fontWeight="medium" pt="4" flexWrap={"wrap"} wordBreak={"break-word"}>
             {description}
-        </p>
-        <div className="flex flex-row items-center justify-center gap-2 px-4 text-lg font-medium pt-4">
-            { githubLink && <a id='github-button' 
-                href={githubLink}
-                className='group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-105 active:scale-105 transition cursor-pointer borderBlack text-gray-950'
-                target='_blank'
-                rel="noreferrer noopener">
-                GitHub
-            </a> }
-            { liveLink && <a id='live-button'
-                href={liveLink}
-                className='group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-105 active:scale-105 transition cursor-pointer borderBlack text-gray-950'
-                target='_blank'
-                rel="noreferrer noopener">
-                Live
-            </a> }
-            { linkedinLink && <a id='linkedin-button'
-                href={linkedinLink}
-                className="group bg-gray-950 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-105 hover:text-white active:scale-105 transition border-2 border-white border-opacity-40"
-                target="_blank"
-                rel="noreferrer noopener">
-                <span className="opacity-70">LinkedIn</span>
-            </a> }
-                
-
-        </div>
-        </div>
+        </Text>
+        <Flex flexDir="row" alignItems="center" justifyContent="center" gap="2" px="4" fontSize="lg" fontWeight="medium" pt="4">
+            { githubLink && 
+                <GithubButton
+                    githubLink={githubLink}
+                    text="GitHub"
+                    elementId="github-button"
+                />
+            }
+            { liveLink && 
+                <Link 
+                    id='live-button'
+                    href={liveLink}
+                    bg="white" 
+                    px="7" 
+                    py="3" 
+                    display="flex" 
+                    alignItems="center" 
+                    gap="2" 
+                    borderRadius="full"
+                    _hover={{ transform: 'scale(1.05)' }}
+                    _focus={{ transform: 'scale(1.1)' }}
+                    _active={{ transform: 'scale(1.05)' }}
+                    transition="all 0.2s"
+                    cursor="pointer"
+                    borderWidth="1px"
+                    borderColor="gray.200"
+                    color="gray.900"
+                    target='_blank'
+                    rel="noreferrer noopener"
+                >
+                    Live
+                </Link>
+            }
+            { linkedinLink && 
+                <Link 
+                    id='linkedin-button'
+                    href={linkedinLink}
+                    bg="gray.900" 
+                    color="white"
+                    px="7" 
+                    py="3" 
+                    display="flex" 
+                    alignItems="center" 
+                    gap="2" 
+                    borderRadius="full"
+                    _hover={{ transform: 'scale(1.05)', color: 'white' }}
+                    _focus={{ transform: 'scale(1.1)' }}
+                    _active={{ transform: 'scale(1.05)' }}
+                    transition="all 0.2s"
+                    borderWidth="2px"
+                    borderColor="whiteAlpha.400"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                >
+                    <Box opacity="0.7">LinkedIn</Box>
+                </Link>
+            }
+        </Flex>
+        </Box>
     );
 }
 

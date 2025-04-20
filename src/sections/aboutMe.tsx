@@ -1,10 +1,11 @@
-const AboutMe = () => {
+import { Box } from '@chakra-ui/react';
 
+const AboutMe = () => {
     return (
         <>
-            <div className=''>
+            <Box>
                 SWAG
-            </div>
+            </Box>
         </>
     );
 }

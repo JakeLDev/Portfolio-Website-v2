@@ -1,15 +1,19 @@
 import Project from "../components/project";
 import React from 'react';
+import { Flex, Container } from '@chakra-ui/react';
+import LinkedInPFP from '../assets/LinkedinPFP-square.jpg';
 
 const Projects = () => {
     return (
-        <div className="flex justify-center">
-            <div className="min-w-[70%] max-w-4xl justify-self-center">
+        <Flex justify="center">
+            <Container minW="70%" maxW="4xl" mt={"6"} justifySelf="center">
                 <Project 
                     title="Project 1" 
-                    description="Description of Project 1"
+                    description="Description of Project 1fasdwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww wwwwwwwwwwwwwwwwwwww wwwwwwwwwwwwwwwwwwww"
                     elementId="Project1Title"
-                    githubLink="https://github.com/JakeLDev/Workout-Tracker"/>
+                    image={LinkedInPFP}
+                    githubLink="https://github.com/JakeLDev/Workout-Tracker"
+                    liveLink="https://jakelyell.dev/"/>
                 <Project 
                     title="Project 2"
                     description="test" 
@@ -18,8 +22,8 @@ const Projects = () => {
                     title="Project 3"
                     description="test2"
                     elementId="Project3Title"/>
-            </div>
-        </div>
+            </Container>
+        </Flex>
     );
 }
 export default Projects;
