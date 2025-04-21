@@ -3,6 +3,7 @@ import { Box, Text, Flex, Link, Center, Image, Button } from '@chakra-ui/react';
 import Title from '../components/title';
 import LinkedInPFP from '../assets/LinkedinPFP-square.jpg';
 import GithubButton from '../components/githubButton';
+import { ColorModeButton } from '@/components/ui/color-mode';
 
 const Home = () => {
     // const { toggleColorMode } = useColorMode();
@@ -15,6 +16,7 @@ const Home = () => {
                 {/* <Button variant="outline" onClick={toggleColorMode}>
                 Toggle Mode
                 </Button> */}
+                {/* <ColorModeButton /> */}
                 
                 {/* Icon Profile Picture */}
                 <Box p="8">
