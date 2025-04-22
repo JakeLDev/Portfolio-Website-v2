@@ -22,6 +22,7 @@ const Projects = () => {
                     title="Project 3"
                     description="test2"
                     elementId="Project3Title"/>
+                    {/* Atlassian projects? Def do some open source I think */}
             </Container>
         </Flex>
     );

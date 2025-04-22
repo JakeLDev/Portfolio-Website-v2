@@ -15,8 +15,8 @@ const TitleBar = () => {
             {/* Color Mode Button - Positioned in top right */}
             <Box 
                 position="fixed" 
-                top="5" 
-                right="5" 
+                top="3" 
+                right="3" 
                 zIndex="1000"
             >
                 <ColorModeButton 
@@ -30,7 +30,7 @@ const TitleBar = () => {
             
             {/* Title Bar - Centered */}
             <Flex justify="center" p="2">
-                <Box position="fixed" m="2" zIndex="999">
+                <Box position="fixed" m="0" zIndex="999">
                     <Tabs.Root colorPalette="purple" size="md" variant="subtle" background={"whiteAlpha.200"} borderColor={"blackAlpha.200"} borderWidth="1px" borderRadius="md" padding="1" style={{ backdropFilter: "blur(10px)" }}>
                         <Tabs.List>
                             <Tabs.Trigger value="Page" onClick={() => handleTabClick("Page")}>Home</Tabs.Trigger>

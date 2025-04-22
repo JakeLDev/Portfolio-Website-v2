@@ -23,8 +23,8 @@ const Project = ({ title,
                     imageHeight = "300px",
                     linkedinLink }: ProjectProps) => {
     return (
-        <Box border={"1px solid"} borderColor="gray.200" borderRadius="lg" p="8" mb="8" boxShadow="md">
-        <Heading as="h1" id={elementId} size="xl" fontWeight="bold" textDecoration="underline">
+        <Box border={"1px solid"} borderColor="gray.300" borderRadius="lg" p="8" mb="8" boxShadow="md">
+        <Heading as="h1" id={elementId} size="lg">
             {title}
         </Heading>
         {image && 

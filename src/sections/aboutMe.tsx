@@ -4,7 +4,8 @@ const AboutMe = () => {
     return (
         <>
             <Box>
-                SWAG
+                {/* SWAG */}
+                {/* YOE, where lived, tech stack? */}
             </Box>
         </>
     );
