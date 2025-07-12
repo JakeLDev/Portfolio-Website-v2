@@ -2,27 +2,107 @@ import Project from "../components/project";
 import React from 'react';
 import { Flex, Container } from '@chakra-ui/react';
 import LinkedInPFP from '../assets/LinkedinPFP-square.jpg';
+import WAPOLImage from '../assets/WAPOL2.png';
+import CasualPayImage from '../assets/CasualPayCalculator.png';
+import MomentumTradingImage from '../assets/MomentumTrading.png';
+import ResistanceImage from '../assets/Resistance.png';
+import HygieneBotImage from '../assets/HygieneBot.png';
+import QFinSiteImage from '../assets/QFin-site2.png';
+import MeanReversionImage from '../assets/MeanReversionProject.png';
 
 const Projects = () => {
     return (
         <Flex justify="center">
             <Container minW="70%" maxW="4xl" mt={"6"} justifySelf="center">
                 <Project 
-                    title="Project 1" 
-                    description="Description of Project 1fasdwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww wwwwwwwwwwwwwwwwwwww wwwwwwwwwwwwwwwwwwww"
+                    title="Personal Portfolio Website" 
+                    description="A modern, responsive portfolio website built with React and TypeScript. Features dark mode support, smooth animations, and optimized performance. Showcases projects, work experience, and technical skills with a clean, professional design."
                     elementId="Project1Title"
                     image={LinkedInPFP}
-                    githubLink="https://github.com/JakeLDev/Workout-Tracker"
-                    liveLink="https://jakelyell.dev/"/>
+                    githubLink="https://github.com/JakeLDev/portfolio"
+                    liveLink="https://jakelyell.dev/"
+                    status="Live"
+                    duration="2024"
+                    skills={["React", "TypeScript", "Chakra UI", "Vite", "CSS3", "Responsive Design"]}
+                />
+                
                 <Project 
-                    title="Project 2"
-                    description="test" 
-                    elementId="Project2Title"/>
+                    title="Crime Data Visualisation for the WA Police Force"
+                    description="Created an interactive desktop application for the Data Science and Analytics Division of the WA Police Force to visualize crime data trends on an interactive heat map of Western Australia. Developed in a team of six over the course of 3 months. Our implementation involved the rapid analysis of a csv file containing 300,000 lines of time series data before displaying it within an interactive html page displayed locally. I performed a team leadership role and was responsible for the data processing and visualization components."
+                    elementId="WAPOLProject"
+                    image={WAPOLImage}
+                    status="Completed"
+                    duration="University Project"
+                    skills={["Python", "Pandas", "PyQt5", "GIS", "SciPy", "Data Visualization", "Team Leadership"]}
+                />
+                
                 <Project 
-                    title="Project 3"
-                    description="test2"
-                    elementId="Project3Title"/>
-                    {/* Atlassian projects? Def do some open source I think */}
+                    title="Casual Paycheck Calculator"
+                    description="Developed a web application to estimate the paycheck of a casual employee. The user inputs their hourly pay rate and penalty rates before either inputting their hours worked manually, or allowing the application to read the events on your google calendar and calculate the number of hours programmatically. The users pay rates and hours are used to estimate the size of the users paycheck. I used this app a lot myself when I was working at EB Games."
+                    elementId="CasualPayProject"
+                    image={CasualPayImage}
+                    githubLink="https://github.com/JakeLDev/Casual-Pay-Calculator"
+                    status="Completed"
+                    duration="Personal Project"
+                    skills={["React", "TypeScript", "Google Calendar API", "Web Development"]}
+                />
+                
+                <Project 
+                    title="Momentum Trading Algorithm"
+                    description="Created a set of algorithms to trade cryptocurrencies, based around the trading strategy of 'momentum trading'. The results were then documented in a report. (The Semester 2 Project for QFin UWA's Trading Team). Worked in a team of 3 people to create a set of Python algorithms with the goal of achieving a positive return when trading on 2020 price data for popular cryptocurrencies. Our algorithm was tested against both the market and the other trading teams' algorithms."
+                    elementId="MomentumTradingProject"
+                    image={MomentumTradingImage}
+                    githubLink="https://github.com/QFinUWA/2021-Momentum-Trading-Buy-Low-Sell-Lower"
+                    status="Completed"
+                    duration="QFin UWA Project"
+                    skills={["Python", "Gemini Modules", "Numpy", "Pandas", "Algorithmic Trading", "Cryptocurrency"]}
+                />
+                
+                <Project 
+                    title="'The Resistance' Card Game Artificial Intelligence Agent"
+                    description="Researched and developed a game-playing Artificial Intelligence agent to play the card game 'The Resistance' to compete in a tournament at UWA. We created an agent that utilizes Bayes' Rule for calculating probabilities in a Bayesian, imperfect information game. Received full marks for Player vs Player performance."
+                    elementId="ResistanceProject"
+                    image={ResistanceImage}
+                    githubLink="https://github.com/JakeLDev/The-Resistance-AI-CITS3001"
+                    status="Completed"
+                    duration="University Project"
+                    skills={["Python", "Artificial Intelligence", "Bayesian Inference", "Game Theory", "Probability"]}
+                />
+                
+                <Project 
+                    title="Twitter Hygiene Bot"
+                    description="Twitter Bot that tweets at set intervals to give reminders on commonly forgotten hygiene procedures. Targeted at people new to living alone. For example: A Tweet every 3 months to remind you to change your toothbrush!"
+                    elementId="HygieneBotProject"
+                    image={HygieneBotImage}
+                    githubLink="https://github.com/JakeLDev/Twitter-Hygiene-Bot"
+                    liveLink="https://twitter.com/HygieneBot"
+                    status="Live"
+                    duration="Personal Project"
+                    skills={["AWS Lambda", "AWS EventBridge", "Twitter API", "Python", "Serverless"]}
+                />
+                
+                <Project 
+                    title="QFin UWA Website"
+                    description="Created a Web Application and Email Domain for the QFin UWA club which displays what the club is about; our events, executive team and committee, and our sponsors. The site is accessible to both desktop and mobile users. Built as part of my role as Executive Director of Trading."
+                    elementId="QFinWebsiteProject"
+                    image={QFinSiteImage}
+                    githubLink="https://github.com/QFinUWA/qfin-website"
+                    liveLink="https://qfinuwa.com"
+                    status="Live"
+                    duration="QFin UWA Project"
+                    skills={["React", "HTML", "CSS", "JavaScript", "Responsive Design", "Club Management"]}
+                />
+                
+                <Project 
+                    title="Trading Team Project - Mean Reversion"
+                    description="Created a project for the QFin Trading Team to complete in Semester 1, 2022. This Project is focused around the concept of Mean Reversion, a mathematical theory which claims that seeing a result that is significantly above or below a mean, will mean that the next result is likely to be closer to the mean. Therefore, in theory, you can place buy or sell orders for financial assets on the basis of how far the current price is from the average price."
+                    elementId="MeanReversionProject"
+                    image={MeanReversionImage}
+                    githubLink="https://github.com/QFinUWA/Mean-Reversion-Trading-Team-Project-Semester-1-2022"
+                    status="Completed"
+                    duration="QFin UWA Project"
+                    skills={["Python", "Pandas", "Numpy", "Alpha Vantage APIs", "Custom Back-testing Framework", "Financial Analysis"]}
+                />
             </Container>
         </Flex>
     );

@@ -6,6 +6,7 @@ import TitleBar from './components/titlebar'
 import Home from './sections/home'
 import AboutMe from './sections/aboutMe'
 import Projects from './sections/projects'
+import WorkExperiences from './sections/workExperiences'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -29,6 +30,7 @@ function App() {
           <Projects />
           <Box h="100vh"></Box>
           <Title text="Work Experience" elementId="WorkExperienceTitle"/>
+          <WorkExperiences />
           <Box h="100vh"></Box>
         </Container>
       </Flex>
