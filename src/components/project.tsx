@@ -38,9 +38,16 @@ const Project = ({
             boxShadow="md"
             overflow="hidden"
         >
-            <Flex direction={{ base: "column", md: "row" }} minHeight="250px">
-                {/* Left Half - Text Content */}
-                <Box flex="1" p="8" display="flex" flexDirection="column" justifyContent="space-between">
+            <Flex direction="row" minHeight="250px">
+                {/* Text Content - Full width on narrow screens, left half on wide screens */}
+                <Box 
+                    flex="1" 
+                    p="8" 
+                    display="flex" 
+                    flexDirection="column" 
+                    // justifyContent="space-between"
+                    width={{ base: "100%", lg: "50%" }}
+                >
                 <Heading as="h2" id={elementId} size="lg" mb="2">
                     {title}
                 </Heading>
@@ -86,69 +93,98 @@ const Project = ({
                         )}
                     </Box>
                     
-                    <Flex flexDir="row" alignItems="center" justifyContent="flex-start" gap="2" fontSize="lg" fontWeight="medium">
+                    <Flex flexDir="row" alignItems="center" justifyContent="flex-start" gap="3" mt="4">
             { githubLink && 
-                <GithubButton
-                    githubLink={githubLink}
-                    text="GitHub"
-                    elementId="github-button"
-                />
-            }
-            { liveLink && 
                 <Link 
-                    id='live-button'
-                    href={liveLink}
-                    bg="white" 
-                    _dark={{ bg: "gray.700", color: "white", borderColor: "gray.600" }}
-                    px="7" 
-                    py="3" 
+                    href={githubLink}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    bg="transparent"
+                    color="gray.600"
+                    _dark={{ color: "gray.300", borderColor: "gray.600" }}
+                    px="4" 
+                    py="2" 
                     display="flex" 
                     alignItems="center" 
                     gap="2" 
-                    borderRadius="full"
-                    _hover={{ transform: 'scale(1.05)' }}
-                    _focus={{ transform: 'scale(1.1)' }}
-                    _active={{ transform: 'scale(1.05)' }}
+                    borderRadius="md"
+                    border="1px solid"
+                    borderColor="gray.300"
+                    _hover={{ 
+                        bg: "gray.50", 
+                        _dark: { bg: "gray.800", color: "blue.400" },
+                        borderColor: "blue.400",
+                        color: "blue.600",
+                    }}
                     transition="all 0.2s"
-                    cursor="pointer"
-                    borderWidth="1px"
-                    borderColor="gray.200"
-                    color="gray.900"
-                    target='_blank'
-                    rel="noreferrer noopener"
+                    fontSize="sm"
+                    fontWeight="medium"
+                    textDecoration="none"
                 >
-                    Live
+                    GitHub
+                </Link>
+            }
+            { liveLink && 
+                <Link 
+                    href={liveLink}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    bg="blue.600"
+                    color="white"
+                    _dark={{ bg: "blue.500" }}
+                    px="4" 
+                    py="2" 
+                    display="flex" 
+                    alignItems="center" 
+                    gap="2" 
+                    borderRadius="md"
+                    _hover={{ 
+                        bg: "blue.700",
+                        _dark: { bg: "blue.600", color: "white" },
+                        transform: "translateY(-1px)"
+                    }}
+                    transition="all 0.2s"
+                    fontSize="sm"
+                    fontWeight="medium"
+                    textDecoration="none"
+                >
+                    Live Demo
                 </Link>
             }
             { linkedinLink && 
                 <Link 
-                    id='linkedin-button'
                     href={linkedinLink}
-                    bg="gray.900" 
-                    color="white"
-                    _dark={{ bg: "gray.600", borderColor: "gray.500" }}
-                    px="7" 
-                    py="3" 
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    bg="transparent"
+                    color="gray.600"
+                    _dark={{ color: "gray.300", borderColor: "gray.600" }}
+                    px="4" 
+                    py="2" 
                     display="flex" 
                     alignItems="center" 
                     gap="2" 
-                    borderRadius="full"
-                    _hover={{ transform: 'scale(1.05)', color: 'white' }}
-                    _focus={{ transform: 'scale(1.1)' }}
-                    _active={{ transform: 'scale(1.05)' }}
+                    borderRadius="md"
+                    border="1px solid"
+                    borderColor="gray.300"
+                    _hover={{ 
+                        bg: "gray.50", 
+                        _dark: { bg: "gray.800", color: "blue.400" },
+                        borderColor: "blue.400",
+                        color: "blue.600",
+                    }}
                     transition="all 0.2s"
-                    borderWidth="2px"
-                    borderColor="whiteAlpha.400"
-                    target="_blank"
-                    rel="noreferrer noopener"
+                    fontSize="sm"
+                    fontWeight="medium"
+                    textDecoration="none"
                 >
-                    <Box opacity="0.7">LinkedIn</Box>
+                    LinkedIn
                 </Link>
             }
                     </Flex>
                 </Box>
                 
-                {/* Right Half - Image */}
+                {/* Right Half - Image (hidden on narrow screens) */}
                 {image && (
                     <Box 
                         flex="1" 
@@ -156,17 +192,22 @@ const Project = ({
                         overflow="hidden"
                         // bg="gray.50"
                         // _dark={{ bg: "gray.800" }}
+                        display={{ base: "none", lg: "block" }}
+                        width={{ base: "0", lg: "50%" }}
                     >
                         <img 
                             src={image} 
                             alt={title} 
                             style={{ 
-                                // position: 'absolute',
-                                top: '40%',
+                                position: 'absolute',
+                                top: '30%',
                                 right: '-2.5rem',
                                 // height: "500px",
+                                overflow: 'hidden',
                                 // width: "auto",
                                 // minHeight: '28.25rem',
+                                // maxHeight: "550px",
+                                // width: '100%',
                                 // width: 'auto',
                                 // height: 'auto',
                                 borderRadius: '8px 8px 0 0',

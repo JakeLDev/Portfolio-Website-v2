@@ -87,7 +87,7 @@ const Projects = () => {
                     image={QFinSiteImage}
                     githubLink="https://github.com/QFinUWA/qfin-website"
                     liveLink="https://qfinuwa.com"
-                    status="Live"
+                    status="Deprecated"
                     duration="QFin UWA Project"
                     skills={["React", "HTML", "CSS", "JavaScript", "Responsive Design", "Club Management"]}
                 />

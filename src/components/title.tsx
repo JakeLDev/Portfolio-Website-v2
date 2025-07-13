@@ -12,9 +12,10 @@ const Title = ({ text, elementId, children }: TitleProps) => {
     return (
         <Box 
             id={elementId}
-            maxW="4xl" 
-            mx="auto" 
-            minW="55%" 
+            // maxW="5xl" 
+            // mx="auto" 
+            minW="55%"
+            w="100%"
             pt="24"
             mt="-8"
         >

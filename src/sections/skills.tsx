@@ -4,7 +4,7 @@ import {
     SiTypescript, SiJavascript, SiPython, SiReact, SiVuedotjs, SiHtml5, SiCss3,
     SiNodedotjs, SiPostgresql, SiMysql, SiMongodb, SiDocker, SiApachemaven,
     SiGit, SiGithub, SiLinux, SiIntellijidea, SiJira, SiAmazonwebservices,
-    SiConfluence, SiPostman, SiNpm, SiSpringboot, SiGraphql, SiAwslambda,
+    SiConfluence, SiPostman, SiNpm, SiSpringboot, SiGraphql, SiAwslambda, SiOpensearch,
     SiRedux, SiWebpack, SiVite, SiJupyter, SiPandas, SiNumpy, SiScikitlearn, SiOpenai,
     SiChakraui, SiKubernetes, SiJenkins, SiGithubactions, SiServerless, SiApachelucene, SiBamboo, SiBitbucket
 } from 'react-icons/si';
@@ -29,6 +29,7 @@ const Skills = () => {
             "MongoDB": { icon: SiMongodb, color: "#47A248" },
             "GraphQL": { icon: SiGraphql, color: "#E10098" },
             "Lucene": { icon: SiApachelucene, color: "#6B7280" },
+            "OpenSearch": { icon: SiOpensearch, color: "#FF9900" },
             
             // Frontend
             "React.js": { icon: SiReact, color: "#61DAFB" },
@@ -106,15 +107,15 @@ const Skills = () => {
             skills: [
                 "Java", "Python",
                 "Node.js", "REST APIs", "Spring Boot", "SQL", "PostgreSQL", 
-                "MySQL", "Microservices", "GraphQL", "Lucene"
+                "MySQL", "Microservices", "GraphQL", "Lucene", "OpenSearch"
             ]
         },
         {
             category: "Frontend", 
             skills: [
                 "React.js", "TypeScript", "JavaScript", "HTML5", "CSS3",
-                "Atlassian Design System", "Vue.js", "Redux", "Responsive Design", 
-                "Single Page Applications", "Vite", "Webpack", "TinyMCE"
+                "Atlassian Design System", "Vue.js", "Responsive Design", 
+                "Single Page Applications", "Webpack", "TinyMCE"
             ]
         },
         {

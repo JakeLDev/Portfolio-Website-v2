@@ -22,7 +22,7 @@ function App() {
             width={"100vw"}
             height={"45vh"} />
       <Flex id="Page" justify="center">
-        <Container centerContent minW="70%" maxW="3xl">
+        <Container centerContent minW="80%" maxW="2xl">
           <TitleBar />
           <Home />
           <Title text="Projects" elementId="ProjectsTitle">
