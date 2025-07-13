@@ -16,7 +16,7 @@ const Title = ({ text, elementId, children }: TitleProps) => {
             mx="auto" 
             minW="55%" 
             pt="24"
-            mt="-12"
+            mt="-8"
         >
             <Heading 
                 as="h1" 

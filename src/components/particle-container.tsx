@@ -2,6 +2,7 @@
 
 import React, { useCallback } from "react";
 import { Box } from "@chakra-ui/react";
+import { useColorMode } from "./ui/color-mode";
 import Particles from "react-particles";
 import type { Container, Engine } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim";
@@ -17,6 +18,13 @@ const ParticleContainer: React.FC<ParticleContainerProps> = ({
   height = "400px", 
   ...boxProps 
 }) => {
+  // Get current color mode
+  const { colorMode } = useColorMode();
+  
+  // Dynamic colors based on theme
+  const particleColor = colorMode === "light" ? "#1e40af" : "#60a5fa"; // Dark blue in light mode, light blue in dark mode
+  const linkColor = colorMode === "light" ? "#1e40af" : "#60a5fa";
+
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
@@ -35,12 +43,17 @@ const ParticleContainer: React.FC<ParticleContainerProps> = ({
       height={height}
       overflow="hidden"
       top={0}
-        left={0}
+      left={0}
       zIndex={-1}
+    //   borderBottom="1px solid"
+    //   borderBottomColor="gray.300"
+    //   _dark={{ borderBottomColor: "gray.700" }}
+      mb="4"
       {...boxProps}
     >
       <Particles
-        id="tsparticles"
+        key={colorMode} // Force re-render when theme changes
+        id={`tsparticles-${colorMode}`}
         init={particlesInit}
         loaded={particlesLoaded}
         style={{
@@ -53,7 +66,7 @@ const ParticleContainer: React.FC<ParticleContainerProps> = ({
         }}
         options={{
           fullScreen: { enable: false },
-          fpsLimit: 120,
+          fpsLimit: 60,
           interactivity: {
             events: {
               onClick: {
@@ -68,13 +81,13 @@ const ParticleContainer: React.FC<ParticleContainerProps> = ({
             },
             modes: {
               grab: {
-                distance: 150,
+                distance: 175,
                 links: {
-                  opacity: 0.4,
+                  opacity: 0.6,
                 },
               },
               push: {
-                quantity: 4,
+                quantity: 2,
               },
               remove: {
                 quantity: 2,
@@ -83,20 +96,20 @@ const ParticleContainer: React.FC<ParticleContainerProps> = ({
           },
           particles: {
             color: {
-              value: "#ffffff",
+              value: particleColor,
             },
             links: {
               enable: true,
-              distance: 155,
-              color: "#ffffff",
-              opacity: 0.2,
+              distance: 165,
+              color: linkColor,
+              opacity: 0.15,
               width: 1,
             },
             move: {
               enable: true,
               speed: 1,
               direction: "none",
-              random: false,
+              random: true,
               straight: false,
               outModes: {
                 default: "bounce",
@@ -105,9 +118,9 @@ const ParticleContainer: React.FC<ParticleContainerProps> = ({
             number: {
               density: {
                 enable: true,
-                area: 800,
+                area: 600,
               },
-              value: 80,
+              value: 90,
             },
             opacity: {
               value: 0.5,
