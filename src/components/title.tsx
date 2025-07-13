@@ -14,7 +14,7 @@ const Title = ({ text, elementId, children }: TitleProps) => {
             id={elementId}
             maxW="4xl" 
             mx="auto" 
-            minW="70%" 
+            minW="55%" 
             pt="24"
             mt="-12"
         >

@@ -5,8 +5,8 @@ import {
     SiNodedotjs, SiPostgresql, SiMysql, SiMongodb, SiDocker, SiApachemaven,
     SiGit, SiGithub, SiLinux, SiIntellijidea, SiJira, SiAmazonwebservices,
     SiConfluence, SiPostman, SiNpm, SiSpringboot, SiGraphql, SiAwslambda,
-    SiRedux, SiWebpack, SiVite, SiJupyter, SiPandas, SiNumpy, SiScikitlearn,
-    SiChakraui, SiKubernetes, SiJenkins, SiGithubactions, SiServerless
+    SiRedux, SiWebpack, SiVite, SiJupyter, SiPandas, SiNumpy, SiScikitlearn, SiOpenai,
+    SiChakraui, SiKubernetes, SiJenkins, SiGithubactions, SiServerless, SiApachelucene, SiBamboo, SiBitbucket
 } from 'react-icons/si';
 import { 
     FaJava, FaDatabase, FaCloud, FaCode, FaTools, FaCogs, FaChartBar,
@@ -28,6 +28,7 @@ const Skills = () => {
             "MySQL": { icon: SiMysql, color: "#4479A1" },
             "MongoDB": { icon: SiMongodb, color: "#47A248" },
             "GraphQL": { icon: SiGraphql, color: "#E10098" },
+            "Lucene": { icon: SiApachelucene, color: "#6B7280" },
             
             // Frontend
             "React.js": { icon: SiReact, color: "#61DAFB" },
@@ -48,6 +49,8 @@ const Skills = () => {
             "Kubernetes": { icon: SiKubernetes, color: "#326CE5" },
             "Jenkins": { icon: SiJenkins, color: "#D24939" },
             "Serverless": { icon: SiServerless, color: "#FD5750" },
+            "Bamboo": { icon: SiBamboo, color: "#0052CC" },
+            "Bitbucket": { icon: SiBitbucket, color: "#0052CC" },
             
             // Data Science
             "Pandas": { icon: SiPandas, color: "#150458" },
@@ -58,12 +61,14 @@ const Skills = () => {
             // Tools
             "GitHub": { icon: SiGithub, color: "#181717" },
             "IntelliJ IDEA": { icon: SiIntellijidea, color: "#000000" },
-            "VS Code": { icon: null, color: "#007ACC" },
+            // "VS Code": { icon: null, color: "#007ACC" },
             "Jira": { icon: SiJira, color: "#0052CC" },
-            "Confluence": { icon: SiConfluence, color: "#172B4D" },
+            "Confluence": { icon: SiConfluence, color: "#0052CC" },
             "Postman": { icon: SiPostman, color: "#FF6C37" },
             "npm": { icon: SiNpm, color: "#CB3837" },
             "Maven": { icon: SiApachemaven, color: "#C71A36" },
+            // "Cursor AI": { icon: null, color: "#6B7280" }, // Placeholder for Cursor AI
+            "ChatGPT": { icon: SiOpenai, color: "#10A37F" },
             
             // Generic fallbacks
             "REST APIs": { icon: FaCode, color: "#6B7280" },
@@ -99,23 +104,23 @@ const Skills = () => {
         {
             category: "Backend",
             skills: [
-                "Java", "TypeScript", "JavaScript", "Python", "Kotlin",
+                "Java", "Python",
                 "Node.js", "REST APIs", "Spring Boot", "SQL", "PostgreSQL", 
-                "MySQL", "MongoDB", "Microservices", "GraphQL"
+                "MySQL", "Microservices", "GraphQL", "Lucene"
             ]
         },
         {
             category: "Frontend", 
             skills: [
                 "React.js", "TypeScript", "JavaScript", "HTML5", "CSS3",
-                "Chakra UI", "Vue.js", "Redux", "Responsive Design", 
-                "Single Page Applications", "Vite", "Webpack"
+                "Atlassian Design System", "Vue.js", "Redux", "Responsive Design", 
+                "Single Page Applications", "Vite", "Webpack", "TinyMCE"
             ]
         },
         {
             category: "DevOps",
             skills: [
-                "AWS", "Docker", "CI/CD", "Git", "GitHub Actions",
+                "AWS", "Docker", "CI/CD", "Git", "GitHub Actions", "Bitbucket", "Bitbucket Pipelines", "Bamboo",
                 "Linux", "AWS Lambda", "Infrastructure as Code",
                 "Serverless", "Cloud Computing"
             ]
@@ -131,7 +136,7 @@ const Skills = () => {
         {
             category: "Practices",
             skills: [
-                "Agile Development", "Scrum", "Object Oriented Programming (OOP)",
+                "Agile Development", "Scrum",
                 "Test Driven Development (TDD)", "Code Review", 
                 "Database Design", "Software Architecture", "Performance Optimization"
             ]
@@ -140,7 +145,7 @@ const Skills = () => {
             category: "Tools",
             skills: [
                 "Git", "GitHub", "IntelliJ IDEA", "VS Code", "Jira",
-                "Confluence", "Postman", "Chrome DevTools", "npm", "Maven"
+                "Confluence", "Postman", "Chrome DevTools", "npm", "Maven", "Cursor AI", "ChatGPT"
             ]
         }
     ];
@@ -183,11 +188,12 @@ const Skills = () => {
                                             px="3"
                                             py="2"
                                             borderRadius="md"
-                                            fontSize="sm"
+                                            fontSize="md"
                                             fontWeight="medium"
                                             display="flex"
                                             alignItems="center"
                                             gap="2"
+                                            userSelect="text"
                                         >
                                             {skillData && (
                                                 <Box 
@@ -240,6 +246,7 @@ const Skills = () => {
                                         display="flex"
                                         alignItems="center"
                                         gap="2"
+                                        userSelect="text"
                                     >
                                         {skillData && (
                                             <Box 

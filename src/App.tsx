@@ -9,6 +9,7 @@ import Projects from './sections/projects'
 import WorkExperiences from './sections/workExperiences'
 import Education from './sections/education'
 import Skills from './sections/skills'
+import ContactCard from './components/contactCard'
 import Footer from './components/footer'
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
   return (
     <>
       <Flex id="Page" justify="center">
-        <Container centerContent minW="70%" maxW="4xl">
+        <Container centerContent minW="70%" maxW="3xl">
           <TitleBar />
           <Home />
           <Title text="Projects" elementId="ProjectsTitle">
@@ -29,8 +30,11 @@ function App() {
           <Title text="Work Experience" elementId="WorkExperienceTitle">
             <WorkExperiences />
           </Title>
-          <Title text="Education" elementId="EducationTitle">
+          <Title text="Higher Education" elementId="EducationTitle">
             <Education />
+          </Title>
+          <Title text="Contact Me" elementId="ContactTitle">
+            <ContactCard />
           </Title>
         </Container>
       </Flex>

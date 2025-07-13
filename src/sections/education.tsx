@@ -38,7 +38,7 @@ const Education = () => {
                                     University of Western Australia (UWA)
                                 </Link>
                                 <Text fontSize="md" color="gray.400" _dark={{ color: "gray.300" }}>
-                                    • Perth, Australia
+                                    â€¢ Perth, Australia
                                 </Text>
                             </Flex>
                             <Text fontSize="md" color="gray.500" _dark={{ color: "gray.300" }} fontWeight="medium" mb="4">
