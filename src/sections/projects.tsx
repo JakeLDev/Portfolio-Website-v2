@@ -13,7 +13,7 @@ import MeanReversionImage from '../assets/MeanReversionProject.png';
 const Projects = () => {
     return (
         <Box>
-                <Project 
+                {/* <Project 
                     title="Personal Portfolio Website" 
                     description="A modern, responsive portfolio website built with React and TypeScript. Features dark mode support, smooth animations, and optimized performance. Showcases projects, work experience, and technical skills with a clean, professional design."
                     elementId="Project1Title"
@@ -23,11 +23,11 @@ const Projects = () => {
                     status="Live"
                     duration="2024"
                     skills={["React", "TypeScript", "Chakra UI", "Vite", "CSS3", "Responsive Design"]}
-                />
+                /> */}
                 
                 <Project 
                     title="Crime Data Visualisation for the WA Police Force"
-                    description="Created an interactive desktop application for the Data Science and Analytics Division of the WA Police Force to visualize crime data trends on an interactive heat map of Western Australia. Developed in a team of six over the course of 3 months. Our implementation involved the rapid analysis of a csv file containing 300,000 lines of time series data before displaying it within an interactive html page displayed locally. I performed a team leadership role and was responsible for the data processing and visualization components."
+                    description="Created an interactive desktop application for the Data Science and Analytics Division of the WA Police Force to visualize crime data trends on an interactive heat map of Western Australia. Developed in a team of six over the course of 3 months. I performed a team leadership role and was responsible for the data processing and visualization components."
                     elementId="WAPOLProject"
                     image={WAPOLImage}
                     status="Completed"
@@ -37,7 +37,7 @@ const Projects = () => {
                 
                 <Project 
                     title="Casual Paycheck Calculator"
-                    description="Developed a web application to estimate the paycheck of a casual employee. The user inputs their hourly pay rate and penalty rates before either inputting their hours worked manually, or allowing the application to read the events on your google calendar and calculate the number of hours programmatically. The users pay rates and hours are used to estimate the size of the users paycheck. I used this app a lot myself when I was working at EB Games."
+                    description="Developed a web application to estimate the paycheck of a casual employee. The user inputs their hourly pay rate and penalty rates before either inputting their hours worked manually, or allowing the application to read the events on your google calendar and calculate the number of hours programmatically. The users pay rates and hours are used to estimate the size of the users paycheck."
                     elementId="CasualPayProject"
                     image={CasualPayImage}
                     githubLink="https://github.com/JakeLDev/Casual-Pay-Calculator"
@@ -48,7 +48,7 @@ const Projects = () => {
                 
                 <Project 
                     title="Momentum Trading Algorithm"
-                    description="Created a set of algorithms to trade cryptocurrencies, based around the trading strategy of 'momentum trading'. The results were then documented in a report. (The Semester 2 Project for QFin UWA's Trading Team). Worked in a team of 3 people to create a set of Python algorithms with the goal of achieving a positive return when trading on 2020 price data for popular cryptocurrencies. Our algorithm was tested against both the market and the other trading teams' algorithms."
+                    description="Created a set of algorithms to trade cryptocurrencies, based around the trading strategy of 'momentum trading'. Worked in a team of 3 people to create a set of Python algorithms with the goal of achieving a positive return when trading on 2020 price data for popular cryptocurrencies. Our algorithm was tested against both the market and other teams' algorithms."
                     elementId="MomentumTradingProject"
                     image={MomentumTradingImage}
                     githubLink="https://github.com/QFinUWA/2021-Momentum-Trading-Buy-Low-Sell-Lower"
@@ -94,7 +94,7 @@ const Projects = () => {
                 
                 <Project 
                     title="Trading Team Project - Mean Reversion"
-                    description="Created a project for the QFin Trading Team to complete in Semester 1, 2022. This Project is focused around the concept of Mean Reversion, a mathematical theory which claims that seeing a result that is significantly above or below a mean, will mean that the next result is likely to be closer to the mean. Therefore, in theory, you can place buy or sell orders for financial assets on the basis of how far the current price is from the average price."
+                    description="Created a project for the QFin Trading Team to complete in Semester 1, 2022. This Project was based on trading on the concept of Mean Reversion. I provided the team with a custom back-testing framework to allow them to test their strategies against historical data. The project was completed by 3 teams of 4 students."
                     elementId="MeanReversionProject"
                     image={MeanReversionImage}
                     githubLink="https://github.com/QFinUWA/Mean-Reversion-Trading-Team-Project-Semester-1-2022"

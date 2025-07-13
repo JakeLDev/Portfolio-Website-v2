@@ -45,9 +45,6 @@ const ParticleContainer: React.FC<ParticleContainerProps> = ({
       top={0}
       left={0}
       zIndex={-1}
-    //   borderBottom="1px solid"
-    //   borderBottomColor="gray.300"
-    //   _dark={{ borderBottomColor: "gray.700" }}
       mb="4"
       {...boxProps}
     >
