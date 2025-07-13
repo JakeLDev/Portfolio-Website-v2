@@ -1,6 +1,6 @@
 import Project from "../components/project";
 import React from 'react';
-import { Flex, Container } from '@chakra-ui/react';
+import { Flex, Container, Box } from '@chakra-ui/react';
 import LinkedInPFP from '../assets/LinkedinPFP-square.jpg';
 import WAPOLImage from '../assets/WAPOL2.png';
 import CasualPayImage from '../assets/CasualPayCalculator.png';
@@ -12,8 +12,7 @@ import MeanReversionImage from '../assets/MeanReversionProject.png';
 
 const Projects = () => {
     return (
-        <Flex justify="center">
-            <Container minW="70%" maxW="4xl" mt={"6"} justifySelf="center">
+        <Box>
                 <Project 
                     title="Personal Portfolio Website" 
                     description="A modern, responsive portfolio website built with React and TypeScript. Features dark mode support, smooth animations, and optimized performance. Showcases projects, work experience, and technical skills with a clean, professional design."
@@ -103,8 +102,7 @@ const Projects = () => {
                     duration="QFin UWA Project"
                     skills={["Python", "Pandas", "Numpy", "Alpha Vantage APIs", "Custom Back-testing Framework", "Financial Analysis"]}
                 />
-            </Container>
-        </Flex>
+        </Box>
     );
 }
 export default Projects;

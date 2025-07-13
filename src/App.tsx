@@ -7,6 +7,9 @@ import Home from './sections/home'
 import AboutMe from './sections/aboutMe'
 import Projects from './sections/projects'
 import WorkExperiences from './sections/workExperiences'
+import Education from './sections/education'
+import Skills from './sections/skills'
+import Footer from './components/footer'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -16,24 +19,22 @@ function App() {
       <Flex id="Page" justify="center">
         <Container centerContent minW="70%" maxW="4xl">
           <TitleBar />
-            {/* <h1 className="text-3xl font-bold underline">
-            Hello world!
-          </h1> */}
-
           <Home />
-          <Box h="100vh"></Box>
-
-          <Title text="About me" elementId="AboutMeTitle"/>
-          <AboutMe />
-          <Box h="100vh"></Box>
-          <Title text="Projects" elementId="ProjectsTitle"/>
-          <Projects />
-          <Box h="100vh"></Box>
-          <Title text="Work Experience" elementId="WorkExperienceTitle"/>
-          <WorkExperiences />
-          <Box h="100vh"></Box>
+          <Title text="Projects" elementId="ProjectsTitle">
+            <Projects />
+          </Title>
+          <Title text="Skills" elementId="SkillsTitle">
+            <Skills />
+          </Title>
+          <Title text="Work Experience" elementId="WorkExperienceTitle">
+            <WorkExperiences />
+          </Title>
+          <Title text="Education" elementId="EducationTitle">
+            <Education />
+          </Title>
         </Container>
       </Flex>
+      <Footer />
     </>
   )
 }

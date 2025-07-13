@@ -1,6 +1,6 @@
 import WorkExperience from "../components/workExperience";
 import React from 'react';
-import { Flex, Container } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import AtlassianLogo from '../assets/Atlassian-Logo-2687666607.png';
 import QFinLogo from '../assets/QFin-Logo2.png';
 import VinniesLogo from '../assets/Gray+Design+Vinnies+logo.jpg';
@@ -8,11 +8,10 @@ import CFCLogo from '../assets/CFC.png';
 
 const WorkExperiences = () => {
     return (
-        <Flex justify="center">
-            <Container minW="70%" maxW="4xl" mt={"6"} justifySelf="center">
+        <Box>
                 <WorkExperience 
                     company="Atlassian" 
-                    position="Junior Software Engineer"
+                    position="Software Engineer"
                     duration="January 2023 - Present"
                     image={AtlassianLogo}
                     imageHeight="100px"
@@ -61,8 +60,7 @@ const WorkExperiences = () => {
                     location="Perth, Australia"
                     skills={["Vue.js", "Django", "HTML", "CSS", "JavaScript", "Docker", "PostgreSQL", "Computer Vision"]}
                 />
-            </Container>
-        </Flex>
+        </Box>
     );
 }
 
