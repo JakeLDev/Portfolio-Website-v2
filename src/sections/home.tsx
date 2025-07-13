@@ -1,10 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Box, Text, Flex, Link, Center, Image, Button } from '@chakra-ui/react';
 import LinkedInPFP from '../assets/LinkedinPFP-square.jpg';
 import GithubButton from '../components/githubButton';
-import ParticlesBackground from '../components/particles';
+import Particles from "react-particles";
+import type { Container, Engine } from "tsparticles-engine";
+import { loadSlim } from "tsparticles-slim";
+import ParticleContainer from '@/components/particle-container';
 
 const Home = () => {
+        // Particle initialization
+        const particlesInit = useCallback(async (engine: Engine) => {
+            await loadSlim(engine);
+        }, []);
+
+        const particlesLoaded = useCallback(
+            async (container: Container | undefined) => {
+                console.log("Particles.js loaded");
+            },
+            []
+        );
 
         // Function to calculate precise age with decimal places
         const calculateAge = (): string => {
@@ -30,12 +44,11 @@ const Home = () => {
             // Cleanup interval on component unmount
             return () => clearInterval(interval);
         }, []);
-
+        
         const [age, setAge] = useState<string>(calculateAge());
-    return (
-        <>
-            <ParticlesBackground />
-            <Box pt={{ base: "20", md: "40" }}>
+        return (
+            <Box position="relative" pt={{ base: "20", md: "40" }}>
+                <Box position="relative" zIndex="1">
                 <Box>
                 <Box p="8">
                     <Center>
@@ -119,8 +132,8 @@ const Home = () => {
                 </Flex>
                 
                 </Box>
+                </Box>
             </Box>
-        </>
     );
 }
 export default Home;

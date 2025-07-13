@@ -15,7 +15,7 @@ const ParticlesBackground = () => {
 
     return (
         <Box
-            position="fixed"
+            position="absolute"
             top="0"
             left="0"
             width="100%"
@@ -28,6 +28,10 @@ const ParticlesBackground = () => {
                 init={particlesInit}
                 loaded={particlesLoaded}
                 options={{
+                    fullScreen: {
+                        enable: false,
+                        zIndex: -1,
+                    },
                     background: {
                         color: {
                             value: "transparent",

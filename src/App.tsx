@@ -11,12 +11,16 @@ import Education from './sections/education'
 import Skills from './sections/skills'
 import ContactCard from './components/contactCard'
 import Footer from './components/footer'
+import ParticleContainer from './components/particle-container'
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
     <>
+      <ParticleContainer
+            width={"100vw"}
+            height={"45vh"} />
       <Flex id="Page" justify="center">
         <Container centerContent minW="70%" maxW="3xl">
           <TitleBar />
