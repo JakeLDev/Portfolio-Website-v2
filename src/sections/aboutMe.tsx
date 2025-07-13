@@ -85,7 +85,7 @@ const AboutMe = () => {
 
 
                     {/* Background Section */}
-                    <VStack align="stretch" spacing="4" mb="6">
+                    <VStack align="stretch" mb="6">
                         <Heading as="h2" size="lg" color="gray.700" _dark={{ color: "gray.300" }}>
                             Background
                         </Heading>
@@ -98,7 +98,7 @@ const AboutMe = () => {
                     </VStack>
 
                     {/* Hobbies Section */}
-                    <VStack align="stretch" spacing="4" mb="6">
+                    <VStack align="stretch" mb="6">
                         <Heading as="h2" size="lg" color="gray.700" _dark={{ color: "gray.300" }}>
                             Hobbies
                         </Heading>
@@ -110,7 +110,7 @@ const AboutMe = () => {
                     </VStack>
 
                     {/* Skills Section */}
-                    <VStack align="stretch" spacing="4">
+                    <VStack align="stretch">
                         <Heading as="h2" size="lg" color="gray.700" _dark={{ color: "gray.300" }}>
                             Skills
                         </Heading>
@@ -118,7 +118,7 @@ const AboutMe = () => {
                             At Atlassian I primarily use Java for backend work, and TypeScript/JavaScript for frontend work, so I'd say I'm most proficient in these in a professional context. However Python is still my favourite language for quick scripts, webscrapers etc, due to my experience with it at University.
                         </Text>
                         
-                        <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }} spacing="3">
+                        <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }}>
                             {skills.map((skill, index) => (
                                 <Badge 
                                     key={index}

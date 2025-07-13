@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Text, Flex, Link, Center, Image, Button } from '@chakra-ui/react';
 import LinkedInPFP from '../assets/LinkedinPFP-square.jpg';
 import GithubButton from '../components/githubButton';
+import ParticlesBackground from '../components/particles';
 
 const Home = () => {
 
@@ -33,9 +34,9 @@ const Home = () => {
         const [age, setAge] = useState<string>(calculateAge());
     return (
         <>
+            <ParticlesBackground />
             <Box pt={{ base: "20", md: "40" }}>
                 <Box>
-                {/* Icon Profile Picture */}
                 <Box p="8">
                     <Center>
                         <Image 

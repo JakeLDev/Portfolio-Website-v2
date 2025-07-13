@@ -37,7 +37,7 @@ const ContactCard = () => {
                 bg="white"
                 _dark={{ bg: "gray.800", borderColor: "gray.600" }}
             >
-                <VStack spacing="6" textAlign="center">
+                <VStack textAlign="center">
                     <Text 
                         fontSize="2xl" 
                         fontWeight="bold"
@@ -56,7 +56,7 @@ const ContactCard = () => {
                         Feel free to reach out if you'd like to connect!
                     </Text>
                     
-                    <VStack spacing="4">
+                    <VStack>
                         <Link 
                             href="mailto:me@jakelyell.dev" 
                             target="_blank" 

@@ -9,6 +9,7 @@ const Footer = () => {
             py="4"
             textAlign="center"
             bg="gray.300"
+            w="100%"
             _dark={{ bg: "gray.900", borderColor: "gray.600" }}
         >
             <Text fontSize="sm" color="gray.400">

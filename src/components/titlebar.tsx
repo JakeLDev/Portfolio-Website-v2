@@ -84,8 +84,8 @@ const TitleBar = () => {
             {/* Color Mode Button - Fixed top-right for all screen sizes */}
             <Box 
                 position="fixed" 
-                top="3" 
-                right="3" 
+                top="5" 
+                right="5" 
                 zIndex="1000"
             >
                 <ColorModeButton 
@@ -173,7 +173,6 @@ const TitleBar = () => {
                             _dark={{ bg: "gray.800" }}
                             borderRadius="md"
                             p="4"
-                            spacing="3"
                             boxShadow="xl"
                             onClick={(e) => e.stopPropagation()}
                         >
@@ -187,7 +186,7 @@ const TitleBar = () => {
                                     borderRadius="md"
                                     bg={activeSection === item.id ? "blue.100" : "transparent"}
                                     _dark={{ 
-                                        bg: activeSection === item.id ? "blue.800" : "transparent"
+                                        bg: activeSection === item.id ? "blue.800" : "transparent", color: activeSection === item.id ? "blue.200" : "inherit"
                                     }}
                                     _hover={{ 
                                         bg: activeSection === item.id ? "blue.200" : "blue.50", 
@@ -199,9 +198,6 @@ const TitleBar = () => {
                                     fontSize="lg"
                                     fontWeight={activeSection === item.id ? "bold" : "medium"}
                                     color={activeSection === item.id ? "blue.700" : "inherit"}
-                                    _dark={{
-                                        color: activeSection === item.id ? "blue.200" : "inherit"
-                                    }}
                                 >
                                     {item.label}
                                 </Text>
