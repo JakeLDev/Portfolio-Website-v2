@@ -68,8 +68,8 @@ const Project = ({
                         </Text>
                         
                         {skills && skills.length > 0 && (
-                            <Box mb="4">
-                                <Text fontSize="sm" fontWeight="semibold" color="gray.600" _dark={{ color: "gray.400" }} mb="2">
+                            <Box mb="2">
+                                <Text fontSize="md" fontWeight="semibold" color="gray.600" _dark={{ color: "gray.400" }} mb="2">
                                     Technologies Used:
                                 </Text>
                                 <Flex flexWrap="wrap" gap="2">
@@ -81,7 +81,7 @@ const Project = ({
                                             px="3"
                                             py="1"
                                             borderRadius="full"
-                                            fontSize="xs"
+                                            fontSize="sm"
                                         >
                                             {skill}
                                         </Badge>
