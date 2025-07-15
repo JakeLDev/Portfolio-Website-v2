@@ -1,7 +1,5 @@
 import Project from "../components/project";
-import React from 'react';
-import { Flex, Container, Box } from '@chakra-ui/react';
-import LinkedInPFP from '../assets/LinkedinPFP-square.jpg';
+import { Box } from '@chakra-ui/react';
 import WAPOLImage from '../assets/WAPOL2.png';
 import CasualPayImage from '../assets/CasualPayCalculator.png';
 import MomentumTradingImage from '../assets/MomentumTrading.png';

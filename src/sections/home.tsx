@@ -1,25 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Box, Text, Flex, Link, Center, Image, Button } from '@chakra-ui/react';
-import LinkedInPFP from '../assets/LinkedinPFP-square.jpg';
+import { useState, useEffect } from 'react';
+import { Box, Text, Flex, Link, Center, Image } from '@chakra-ui/react';
+import JakeLyellTiny from '../assets/JakeLyellTiny.jpg';
 import GithubButton from '../components/githubButton';
-import Particles from "react-particles";
-import type { Container, Engine } from "tsparticles-engine";
-import { loadSlim } from "tsparticles-slim";
-import ParticleContainer from '@/components/particle-container';
 
 const Home = () => {
-        // Particle initialization
-        const particlesInit = useCallback(async (engine: Engine) => {
-            await loadSlim(engine);
-        }, []);
-
-        const particlesLoaded = useCallback(
-            async (container: Container | undefined) => {
-                console.log("Particles.js loaded");
-            },
-            []
-        );
-
         // Function to calculate precise age with decimal places
         const calculateAge = (): string => {
             const birthDate = new Date('2001-08-04'); // Replace with your actual birth date
@@ -53,7 +37,7 @@ const Home = () => {
                 <Box p="8">
                     <Center>
                         <Image 
-                            src={ LinkedInPFP }
+                            src={ JakeLyellTiny }
                             alt="Profile Picture"
                             height="250px"
                             margin={"20px"}

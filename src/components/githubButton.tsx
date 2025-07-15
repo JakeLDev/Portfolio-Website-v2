@@ -1,5 +1,4 @@
 import { Link } from '@chakra-ui/react';
-import React from 'react';
 
 interface GithubButtonProps {
     githubLink: string;

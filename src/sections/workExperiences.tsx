@@ -1,5 +1,4 @@
 import WorkExperience from "../components/workExperience";
-import React from 'react';
 import { Box } from '@chakra-ui/react';
 import AtlassianLogo from '../assets/Atlassian-Logo-2687666607.png';
 import QFinLogo from '../assets/QFin-Logo2.png';

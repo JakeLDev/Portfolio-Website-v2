@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Text, Link, Icon } from "@chakra-ui/react";
 import { FaHeart } from 'react-icons/fa';
 

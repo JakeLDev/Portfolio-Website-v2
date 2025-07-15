@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Heading, Text, Flex, Link, Badge } from '@chakra-ui/react';
 
 interface EducationProps {

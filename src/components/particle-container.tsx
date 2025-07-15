@@ -31,7 +31,7 @@ const ParticleContainer: React.FC<ParticleContainerProps> = ({
 
   const particlesLoaded = useCallback(
     async (container: Container | undefined) => {
-      console.log("Particles.js loaded");
+      console.log("Particles.js loaded", container);
     },
     []
   );

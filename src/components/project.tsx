@@ -1,6 +1,4 @@
-import React from 'react';
-import { Box, Heading, Text, Flex, Button, Link, Badge } from '@chakra-ui/react';
-import GithubButton from './githubButton';
+import { Box, Heading, Text, Flex, Link, Badge } from '@chakra-ui/react';
 
 interface ProjectProps {
     title: string;
@@ -23,7 +21,6 @@ const Project = ({
     githubLink,
     liveLink,
     image,
-    imageHeight = "200px",
     linkedinLink,
     skills,
     duration,

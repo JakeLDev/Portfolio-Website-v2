@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Box, Flex, Container, Text, Heading, Image, SimpleGrid, VStack, Badge } from '@chakra-ui/react';
 import JakePortrait from '../assets/JakeLyellTiny.jpg';
 

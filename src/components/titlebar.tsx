@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Tabs, Box, Flex, IconButton, VStack, Text } from '@chakra-ui/react';
 import { ColorModeButton } from "./ui/color-mode";
 import { FaBars, FaTimes } from 'react-icons/fa';

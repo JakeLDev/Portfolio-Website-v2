@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Flex, Text, Heading, Badge, Link } from '@chakra-ui/react';
 import UWALogo from '../assets/uwa-logo.png';
 
