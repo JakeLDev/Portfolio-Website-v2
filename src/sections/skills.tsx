@@ -5,7 +5,7 @@ import {
     SiGit, SiGithub, SiLinux, SiIntellijidea, SiJira, SiAmazonwebservices,
     SiConfluence, SiPostman, SiNpm, SiSpringboot, SiGraphql, SiAwslambda, SiOpensearch,
     SiRedux, SiWebpack, SiVite, SiJupyter, SiPandas, SiNumpy, SiScikitlearn, SiOpenai,
-    SiChakraui, SiKubernetes, SiJenkins, SiGithubactions, SiServerless, SiApachelucene, SiBamboo, SiBitbucket
+    SiChakraui, SiKubernetes, SiJenkins, SiGithubactions, SiServerless, SiApachelucene, SiBamboo, SiBitbucket, SiGithubcopilot
 } from 'react-icons/si';
 import { 
     FaJava, FaDatabase, FaCloud, FaCode, FaTools, FaCogs, FaChartBar,
@@ -53,13 +53,13 @@ const Skills = () => {
             "Bitbucket": { icon: SiBitbucket, color: "#0052CC" },
             
             // Data Science
-            "Pandas": { icon: SiPandas, color: "#150458" },
-            "NumPy": { icon: SiNumpy, color: "#013243" },
+            "Pandas": { icon: SiPandas, color: "#442d9eff" },
+            "NumPy": { icon: SiNumpy, color: "#005875ff" },
             "Jupyter": { icon: SiJupyter, color: "#F37626" },
             "Machine Learning": { icon: SiScikitlearn, color: "#F7931E" },
             
             // Tools
-            "GitHub": { icon: SiGithub, color: "#181717" },
+            "GitHub": { icon: SiGithub, color: "#000000ff" },
             "IntelliJ IDEA": { icon: SiIntellijidea, color: "#000000" },
             // "VS Code": { icon: null, color: "#007ACC" },
             "Jira": { icon: SiJira, color: "#0052CC" },
@@ -94,7 +94,8 @@ const Skills = () => {
             "Chrome DevTools": { icon: FaTools, color: "#4285F4" },
             "Responsive Design": { icon: FaCode, color: "#6B7280" },
             "Single Page Applications": { icon: FaCode, color: "#6B7280" },
-            "Kotlin": { icon: FaCode, color: "#7F52FF" }
+            "Kotlin": { icon: FaCode, color: "#7F52FF" },
+            "GitHub Copilot": { icon: SiGithubcopilot, color: "#6B7280" },
         };
         
         return iconMap[skill] || null;
@@ -145,7 +146,7 @@ const Skills = () => {
             category: "Tools",
             skills: [
                 "Git", "GitHub", "IntelliJ IDEA", "VS Code", "Jira",
-                "Confluence", "Postman", "Chrome DevTools", "npm", "Maven", "Cursor AI", "ChatGPT"
+                "Confluence", "Postman", "Chrome DevTools", "npm", "Maven", "Cursor AI", "ChatGPT", "GitHub Copilot"
             ]
         }
     ];

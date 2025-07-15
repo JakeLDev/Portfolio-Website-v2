@@ -82,7 +82,7 @@ const WorkExperience = ({
             
             {skills && skills.length > 0 && (
                 <Box>
-                    <Text fontSize="sm" fontWeight="semibold" color="gray.600" mb="2">
+                    <Text fontSize="sm" fontWeight="semibold" color="gray.400" mb="2">
                         Skills & Technologies:
                     </Text>
                     <Flex flexWrap="wrap" gap="2">

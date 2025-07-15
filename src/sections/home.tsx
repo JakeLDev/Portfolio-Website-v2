@@ -70,7 +70,7 @@ const Home = () => {
                         <Link 
                             color="#0052CC" 
                             fontWeight="extrabold"
-                            textShadow="1px 1px 1px white, -1px 1px 1px white, -1px -1px 1px white, 1px -1px 1px white"
+                            textShadow="1px 1px 1px lightgray, -1px 1px 1px lightgray, -1px -1px 1px lightgray, 1px -1px 1px lightgray"
                             href='https://www.atlassian.com/' 
                             target="_blank"
                         >

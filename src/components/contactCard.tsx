@@ -75,7 +75,7 @@ const ContactCard = () => {
                             textDecoration="none"
                             // minW={{ base: "auto", md: "200px" }}
                         >
-                            Get in touch
+                            Email me at me@jakelyell.dev
                         </Link>
                         
                         <Flex gap={{ base: "3", md: "4" }} justify="center" wrap="wrap">
