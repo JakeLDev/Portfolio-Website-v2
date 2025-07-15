@@ -22,8 +22,8 @@ const Projects = () => {
             {WAPOL}
             {PaycheckCalculator}
             {TwitterHygieneBot}
-            {MomentumTrading}
-            {Resistance}
+            {/* {MomentumTrading}
+            {Resistance} */}
             {/* {QFinWebsite} */}
             {/* {MeanReversion} */}
         </Box>
@@ -97,31 +97,31 @@ const PaycheckCalculator = (
     />
 )
 
-const MomentumTrading = (
-    <Project 
-        title="Momentum Trading Algorithm"
-        description="Created a set of algorithms to trade cryptocurrencies, based around the trading strategy of 'momentum trading'. Worked in a team of 3 people to create a set of Python algorithms with the goal of achieving a positive return when trading on 2020 price data for popular cryptocurrencies. Our algorithm was tested against both the market and other teams' algorithms."
-        elementId="MomentumTradingProject"
-        image={MomentumTradingImage}
-        githubLink="https://github.com/QFinUWA/2021-Momentum-Trading-Buy-Low-Sell-Lower"
-        status="Completed"
-        duration="QFin UWA Project"
-        skills={["Python", "Gemini Modules", "Numpy", "Pandas", "Algorithmic Trading", "Cryptocurrency"]}
-    />
-)
+// const MomentumTrading = (
+//     <Project 
+//         title="Momentum Trading Algorithm"
+//         description="Created a set of algorithms to trade cryptocurrencies, based around the trading strategy of 'momentum trading'. Worked in a team of 3 people to create a set of Python algorithms with the goal of achieving a positive return when trading on 2020 price data for popular cryptocurrencies. Our algorithm was tested against both the market and other teams' algorithms."
+//         elementId="MomentumTradingProject"
+//         image={MomentumTradingImage}
+//         githubLink="https://github.com/QFinUWA/2021-Momentum-Trading-Buy-Low-Sell-Lower"
+//         status="Completed"
+//         duration="QFin UWA Project"
+//         skills={["Python", "Gemini Modules", "Numpy", "Pandas", "Algorithmic Trading", "Cryptocurrency"]}
+//     />
+// )
 
-const Resistance = (
-    <Project 
-        title="'The Resistance' Card Game Artificial Intelligence Agent"
-        description="Researched and developed a game-playing Artificial Intelligence agent to play the card game 'The Resistance' to compete in a tournament at UWA. We created an agent that utilizes Bayes' Rule for calculating probabilities in a Bayesian, imperfect information game. Received full marks for Player vs Player performance."
-        elementId="ResistanceProject"
-        image={ResistanceImage}
-        githubLink="https://github.com/JakeLDev/The-Resistance-AI-CITS3001"
-        status="Completed"
-        duration="University Project"
-        skills={["Python", "Artificial Intelligence", "Bayesian Inference", "Game Theory", "Probability"]}
-    />
-)
+// const Resistance = (
+//     <Project 
+//         title="'The Resistance' Card Game Artificial Intelligence Agent"
+//         description="Researched and developed a game-playing Artificial Intelligence agent to play the card game 'The Resistance' to compete in a tournament at UWA. We created an agent that utilizes Bayes' Rule for calculating probabilities in a Bayesian, imperfect information game. Received full marks for Player vs Player performance."
+//         elementId="ResistanceProject"
+//         image={ResistanceImage}
+//         githubLink="https://github.com/JakeLDev/The-Resistance-AI-CITS3001"
+//         status="Completed"
+//         duration="University Project"
+//         skills={["Python", "Artificial Intelligence", "Bayesian Inference", "Game Theory", "Probability"]}
+//     />
+// )
 
 const TwitterHygieneBot = (
     <Project
