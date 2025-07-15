@@ -190,8 +190,6 @@ const Project = ({
                         flex="1" 
                         position="relative"
                         overflow="hidden"
-                        // bg="gray.50"
-                        // _dark={{ bg: "gray.800" }}
                         display={{ base: "none", lg: "block" }}
                         width={{ base: "0", lg: "50%" }}
                     >
@@ -202,18 +200,8 @@ const Project = ({
                                 position: 'absolute',
                                 top: '30%',
                                 right: '-2.5rem',
-                                // height: "500px",
                                 overflow: 'hidden',
-                                // width: "auto",
-                                // minHeight: '28.25rem',
-                                // maxHeight: "550px",
-                                // width: '100%',
-                                // width: 'auto',
-                                // height: 'auto',
                                 borderRadius: '8px 8px 0 0',
-                                // boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-                                // transform: 'scale(1.0)',
-                                // transition: 'transform 0.3s ease'
                             }}
                         />
                     </Box>
