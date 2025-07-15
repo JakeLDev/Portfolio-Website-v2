@@ -22,7 +22,7 @@ const Education = () => {
                         )}
                         <Box flex="1">
                             <Heading as="h2" size="lg" mb="2">
-                                Bachelor of Science
+                                Bachelor of Science | Double Major in <strong><u>Computer Science</u></strong> and <strong><u>Data Science</u></strong>
                             </Heading>
                             <Flex flexDir="row" alignItems="center" gap="2" mb="2" flexWrap="wrap">
                                 <Link 
@@ -47,12 +47,10 @@ const Education = () => {
                     </Flex>
                     
                     <Text fontSize="lg" fontWeight="medium" mb="4" flexWrap={"wrap"} wordBreak={"break-word"}>
-                        Double Major in <strong>Computer Science</strong> and <strong>Data Science</strong>
-                        <br />
                         <strong>WAM:</strong> 71.304 | <strong>GPA:</strong> 5.652
                         <br />
                         Graduated with comprehensive knowledge in software development, algorithms, machine learning, and data analysis. 
-                        Completed projects in web development, artificial intelligence, and statistical modeling.
+                        Completed projects in web development, artificial intelligence, and statistical modelling.
                     </Text>
                     
                     <Box>

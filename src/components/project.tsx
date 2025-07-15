@@ -6,6 +6,7 @@ interface ProjectProps {
     elementId: string;
     githubLink?: string;
     liveLink?: string;
+    patchNotesLink?: string;
     image?: string;
     imageHeight?: string;
     linkedinLink?: string;
@@ -20,6 +21,7 @@ const Project = ({
     elementId,
     githubLink,
     liveLink,
+    patchNotesLink,
     image,
     linkedinLink,
     skills,
@@ -42,7 +44,6 @@ const Project = ({
                     p="8" 
                     display="flex" 
                     flexDirection="column" 
-                    // justifyContent="space-between"
                     width={{ base: "100%", lg: "50%" }}
                 >
                 <Heading as="h2" id={elementId} size="lg" mb="2">
@@ -146,6 +147,36 @@ const Project = ({
                     textDecoration="none"
                 >
                     Live Demo
+                </Link>
+            }
+            { patchNotesLink && 
+                <Link 
+                    href={patchNotesLink}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    bg="transparent"
+                    color="gray.600"
+                    _dark={{ color: "gray.300", borderColor: "gray.600" }}
+                    px="4" 
+                    py="2" 
+                    display="flex" 
+                    alignItems="center" 
+                    gap="2" 
+                    borderRadius="md"
+                    border="1px solid"
+                    borderColor="gray.300"
+                    _hover={{ 
+                        bg: "gray.50", 
+                        _dark: { bg: "gray.800", color: "purple.400" },
+                        borderColor: "purple.400",
+                        color: "purple.600",
+                    }}
+                    transition="all 0.2s"
+                    fontSize="sm"
+                    fontWeight="medium"
+                    textDecoration="none"
+                >
+                    Patch Notes
                 </Link>
             }
             { linkedinLink && 

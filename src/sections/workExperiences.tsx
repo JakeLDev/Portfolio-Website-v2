@@ -10,15 +10,19 @@ const WorkExperiences = () => {
         <Box>
                 <WorkExperience 
                     company="Atlassian" 
-                    position="Software Engineer"
+                    position="Full Stack Software Engineer | Confluence Data Center"
                     duration="January 2023 - Present"
                     image={AtlassianLogo}
                     imageHeight="100px"
-                    description="Joined Atlassian in January 2023 as a Graduate Software Engineer. Atlassian is a software company that develops products primarily for software teams. My role involves working on both frontend and backend development for Atlassian's Confluence product. Developing new features for Confluence Data Center, a product that allows users to collaborate on documents and share information. The product is used by both large and small companies worldwide. My team is responsible for developing new features for the product, as well as maintaining and fixing bugs in the existing codebase when they occur."
+                    description=" My role involves full stack development on Confluence Data Center, a product that allows 
+                    teams to collaborate on documents and share information, hosted on-premises or in private clouds.
+                    My team is responsible for developing new, user-facing features for the product, 
+                    as well as maintaining and optimizing performance for our largest enterprise customers.
+                    Some recent projects that I've contributed to include: Exact Search, Editor Word Count, Dark Theme, Rovo Integration, and more."
                     elementId="AtlassianExperience"
                     companyLink="https://www.atlassian.com/"
                     location="Sydney, Australia"
-                    skills={["Java", "React", "JavaScript", "TypeScript", "Kotlin", "REST APIs", "Agile Development", "Git", "CI/CD"]}
+                    skills={["Java", "React", "JavaScript", "TypeScript", "REST APIs", "Agile Development", "Git", "CI/CD"]}
                 />
                 
                 <WorkExperience 
@@ -29,7 +33,7 @@ const WorkExperiences = () => {
                     imageHeight="100px"
                     description="Worked as the Executive Director of Trading at QFin UWA for 2022. QFin is a club that focuses on trading stocks and cryptocurrencies, utilizing algorithmic approaches. The role involved creating, running and participating in projects for 2022's Trading Team, along with organizing and running some trading-based events and workshops. I built both a website and an algorithm back-testing framework for the club over summer. As a member of the Executive team, I was responsible for managing the trading team and organizing events."
                     elementId="QFinExperience"
-                    companyLink="https://qfinuwa.com"
+                    companyLink="https://qfinuwa.org"
                     location="Perth, Australia"
                     skills={["React", "HTML", "CSS", "JavaScript", "Python", "Pandas", "Numpy", "Alpha Vantage APIs", "Trading Algorithms"]}
                 />

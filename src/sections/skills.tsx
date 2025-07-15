@@ -120,7 +120,7 @@ const Skills = () => {
         {
             category: "DevOps",
             skills: [
-                "AWS", "Docker", "CI/CD", "Git", "GitHub Actions", "Bitbucket", "Bitbucket Pipelines", "Bamboo",
+                "AWS", "Docker", "CI/CD", "Git", "Bitbucket", "Bitbucket Pipelines", "Bamboo", "GitHub Actions",
                 "Linux", "AWS Lambda", "Infrastructure as Code",
                 "Serverless", "Cloud Computing"
             ]
@@ -188,7 +188,7 @@ const Skills = () => {
                                             px="3"
                                             py="2"
                                             borderRadius="md"
-                                            fontSize="md"
+                                            fontSize="lg"
                                             fontWeight="medium"
                                             display="flex"
                                             alignItems="center"
@@ -198,7 +198,7 @@ const Skills = () => {
                                             {skillData && (
                                                 <Box 
                                                     as={skillData.icon} 
-                                                    boxSize="16px"
+                                                    boxSize="20px"
                                                     color={skillData.color}
                                                     display="inline-block"
                                                 />

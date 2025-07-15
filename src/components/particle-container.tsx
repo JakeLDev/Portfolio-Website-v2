@@ -4,7 +4,7 @@ import React, { useCallback } from "react";
 import { Box } from "@chakra-ui/react";
 import { useColorMode } from "./ui/color-mode";
 import Particles from "react-particles";
-import type { Container, Engine } from "tsparticles-engine";
+import type { Engine } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim";
 
 interface ParticleContainerProps {
@@ -29,13 +29,6 @@ const ParticleContainer: React.FC<ParticleContainerProps> = ({
     await loadSlim(engine);
   }, []);
 
-  const particlesLoaded = useCallback(
-    async (container: Container | undefined) => {
-      console.log("Particles.js loaded", container);
-    },
-    []
-  );
-
   return (
     <Box
       position="absolute"
@@ -52,7 +45,6 @@ const ParticleContainer: React.FC<ParticleContainerProps> = ({
         key={colorMode} // Force re-render when theme changes
         id={`tsparticles-${colorMode}`}
         init={particlesInit}
-        loaded={particlesLoaded}
         style={{
           width: "100%",
           height: "100%",
