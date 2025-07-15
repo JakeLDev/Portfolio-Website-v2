@@ -15,6 +15,7 @@ const Title = ({ text, elementId, children }: TitleProps) => {
             // maxW="5xl" 
             // mx="auto" 
             minW="55%"
+            maxW="1000px"
             w="100%"
             pt="24"
             mt="-8"
