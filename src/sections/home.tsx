@@ -56,17 +56,17 @@ const Home = () => {
                             color="green.500" 
                             _dark={{ color: "green.400", bg: "gray.800", borderColor: "gray.600" }}
                             bg="gray.100"
-                            // _dark={{ bg: "gray.900" }}
                             px="2"
                             py="1"
                             borderRadius="md"
                             border="1px solid"
                             borderColor="gray.300"
-                            // _dark={{ borderColor: "gray.600" 
                         >
                             {age}
                         </Text>
-                        {' '}year old Full Stack Software Engineer at{' '}
+                        
+                        {' '}year old <Text fontStyle={"italic"} as="span">Full Stack Software Engineer</Text> at{' '}
+                        
                         <Link 
                             color="#0052CC" 
                             fontWeight="extrabold"
