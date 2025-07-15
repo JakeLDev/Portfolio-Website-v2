@@ -42,7 +42,7 @@ const RovoDCConnector = (
         image={RovoDCConnectorImage}
         status="On-going"
         duration="Confluence DC Project"
-        skills={["Java", "REST APIs", "Confluence DC", "Rovo", "Data Integration"]}
+        skills={["Java", "Confluence DC", "Rovo", "Data Integration", "Artificial Intelligence"]}
     />
 )
 
