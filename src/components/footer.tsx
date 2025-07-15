@@ -25,6 +25,9 @@ const Footer = () => {
                     Built with <Icon as={FaHeart} color="red.400" mx="1" /> using React & TypeScript
                 </Link>
             </Text>
+            <Text fontSize="sm" color="gray.500" _dark={{ color: "gray.400" }} mt="2">
+                Updated July 2025
+            </Text>
         </Box>
     );
 };

@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Flex, Link, Badge } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex, Link, Badge, Image } from '@chakra-ui/react';
 
 interface ProjectProps {
     title: string;
@@ -221,16 +221,18 @@ const Project = ({
                         display={{ base: "none", lg: "block" }}
                         width={{ base: "0", lg: "50%" }}
                     >
-                        <img 
+                        <Image 
                             src={image} 
                             alt={title} 
-                            style={{ 
-                                position: 'absolute',
-                                top: '30%',
-                                right: '-2.5rem',
-                                overflow: 'hidden',
-                                borderRadius: '8px 8px 0 0',
-                            }}
+                            position="absolute"
+                            top="30%"
+                            right="-2.5rem"
+                            overflow="hidden"
+                            borderRadius="8px 8px 0 0"
+                            objectFit="cover"
+                            border={"1px solid"}
+                            borderColor="gray.300"
+                            _dark={{ borderColor: "gray.600" }}
                         />
                     </Box>
                 )}
