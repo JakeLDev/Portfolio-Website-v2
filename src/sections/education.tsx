@@ -78,6 +78,8 @@ const Education = () => {
                                     py="1"
                                     borderRadius="full"
                                     fontSize="xs"
+                                    userSelect="text"
+                                    cursor="text"
                                 >
                                     {subject}
                                 </Badge>

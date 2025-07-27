@@ -105,6 +105,8 @@ const Education = ({
                                 py="1"
                                 borderRadius="full"
                                 fontSize="xs"
+                                userSelect="text"
+                                cursor="text"
                             >
                                 GPA: {gpa}
                             </Badge>
@@ -117,6 +119,8 @@ const Education = ({
                                 py="1"
                                 borderRadius="full"
                                 fontSize="xs"
+                                userSelect="text"
+                                cursor="text"
                             >
                                 WAM: {wam}
                             </Badge>
@@ -140,6 +144,8 @@ const Education = ({
                                 py="1"
                                 borderRadius="full"
                                 fontSize="xs"
+                                userSelect="text"
+                                cursor="text"
                             >
                                 {achievement}
                             </Badge>

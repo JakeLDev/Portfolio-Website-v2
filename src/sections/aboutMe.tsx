@@ -130,6 +130,8 @@ const AboutMe = () => {
                                     fontSize="sm"
                                     textAlign="center"
                                     fontWeight="medium"
+                                    userSelect="text"
+                                    cursor="text"
                                 >
                                     {skill.name}
                                 </Badge>

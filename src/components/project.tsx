@@ -82,6 +82,8 @@ const Project = ({
                                             py="1"
                                             borderRadius="full"
                                             fontSize="sm"
+                                            userSelect="text"
+                                            cursor="text"
                                         >
                                             {skill}
                                         </Badge>

@@ -95,6 +95,8 @@ const WorkExperience = ({
                                 py="1"
                                 borderRadius="full"
                                 fontSize="xs"
+                                userSelect="text"
+                                cursor="text"
                             >
                                 {skill}
                             </Badge>
