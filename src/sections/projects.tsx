@@ -16,6 +16,7 @@ import RovoDCConnectorImage from '../assets/RovoDCConnector.png';
 const Projects = () => {
     return (
         <Box>
+            {MigrationFeatures}
             {RovoDCConnector}
             {ExactSearch}
             {WordCount}
@@ -31,6 +32,17 @@ const Projects = () => {
 }
 export default Projects;
 
+const MigrationFeatures = (
+    <Project 
+        title="Unnanounced Confluence DC Migration Features"
+        description="Developing a set of features to assist users in migrating from Confluence Data Center to Confluence Cloud. These features include tools for data clean up, data migration, compatibility checks, and performance optimizations to ensure a smooth transition for users moving to the Cloud platform. More details coming soon when these features are released!"
+        elementId="MigrationFeaturesProject"
+        status="In Progress"
+        duration="Confluence DC Project"
+        skills={["Java", "Data Migration", "Performance Optimization"]}
+    />
+)
+
 const RovoDCConnector = (
     <Project
         title="Rovo DC Connector"
@@ -40,7 +52,7 @@ const RovoDCConnector = (
         elementId="RovoDCConnectorProject"
         patchNotesLink="https://confluence.atlassian.com/doc/confluence-9-4-release-notes-1528300438.html"
         image={RovoDCConnectorImage}
-        status="On-going"
+        status="Completed"
         duration="Confluence DC Project"
         skills={["Java", "Data Integration", "Atlassian Rovo", "Authentication", "Artificial Intelligence"]}
     />

@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       <ParticleContainer
-            width={"100vw"}
+            width={"100%"}
             height={"45vh"} />
       <Flex id="Page" justify="center">
         <Container centerContent minW="80%" maxW="2xl">
