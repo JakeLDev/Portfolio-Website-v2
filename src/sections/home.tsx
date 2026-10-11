@@ -31,7 +31,7 @@ const Home = () => {
         
         const [age, setAge] = useState<string>(calculateAge());
         return (
-            <Box position="relative" pt={{ base: "20", md: "40" }}>
+            <Box as="section" id="Page" tabIndex={-1} _focus={{ outline: "none" }} position="relative" pt={{ base: "20", md: "40" }}>
                 <Box position="relative" zIndex="1">
                 <Box>
                 <Box p="8">
