@@ -1,4 +1,5 @@
-import { Box, Heading, Text, Flex, Link, Badge } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex, Badge } from '@chakra-ui/react';
+import ExternalLink from './externalLink';
 
 interface WorkExperienceProps {
     company: string;
@@ -32,7 +33,7 @@ const WorkExperience = ({
                     <Box flexShrink="0">
                         <img 
                             src={image} 
-                            alt={`${company} logo`} 
+                            alt="" 
                             style={{ 
                                 maxWidth: '100px', 
                                 maxHeight: imageHeight, 
@@ -43,29 +44,28 @@ const WorkExperience = ({
                     </Box>
                 )}
                 <Box flex="1">
-                    <Heading as="h2" id={elementId} size="lg" mb="2">
+                    <Heading as="h3" id={elementId} size="lg" mb="2">
                         {position}
                     </Heading>
                     <Flex flexDir="row" alignItems="center" gap="2" mb="2" flexWrap="wrap">
                         {companyLink ? (
-                            <Link 
+                            <ExternalLink 
                                 href={companyLink}
                                 fontSize="xl"
                                 fontWeight="semibold"
                                 color="blue.600"
-                                _hover={{ color: 'blue.800', textDecoration: 'underline' }}
-                                target="_blank"
-                                rel="noreferrer noopener"
+                                _dark={{ color: "blue.300" }}
+                                _hover={{ color: 'blue.800', textDecoration: 'underline', _dark: { color: 'blue.200' } }}
                             >
                                 {company}
-                            </Link>
+                            </ExternalLink>
                         ) : (
                             <Text fontSize="xl" fontWeight="semibold" color="gray.700">
                                 {company}
                             </Text>
                         )}
                         {location && (
-                            <Text fontSize="md" color="gray.400" _dark={{ color: "gray.300" }}>
+                            <Text fontSize="md" color="gray.600" _dark={{ color: "gray.300" }}>
                                 • {location}
                             </Text>
                         )}
@@ -82,13 +82,13 @@ const WorkExperience = ({
             
             {skills && skills.length > 0 && (
                 <Box>
-                    <Text fontSize="sm" fontWeight="semibold" color="gray.400" mb="2">
+                    <Text fontSize="sm" fontWeight="semibold" color="gray.600" _dark={{ color: "gray.400" }} mb="2">
                         Skills & Technologies:
                     </Text>
-                    <Flex flexWrap="wrap" gap="2">
+                    <Flex as="ul" listStyleType="none" m="0" p="0" flexWrap="wrap" gap="2">
                         {skills.map((skill, index) => (
-                            <Badge 
-                                key={index}
+                            <li key={index}>
+                            <Badge
                                 colorScheme="blue" 
                                 variant="subtle"
                                 px="3"
@@ -100,6 +100,7 @@ const WorkExperience = ({
                             >
                                 {skill}
                             </Badge>
+</li>
                         ))}
                     </Flex>
                 </Box>

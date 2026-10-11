@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading } from '@chakra-ui/react';
+import { Box, Heading, VisuallyHidden } from '@chakra-ui/react';
 
 interface TitleProps {
     text: string;
@@ -7,22 +7,25 @@ interface TitleProps {
     children?: React.ReactNode;
 }
 
-// add react prop for text
 const Title = ({ text, elementId, children }: TitleProps) => {
+    const headingId = `${elementId}-heading`;
     return (
         <Box 
+            as="section"
             id={elementId}
-            // maxW="5xl" 
-            // mx="auto" 
+            aria-labelledby={headingId}
+            tabIndex={-1}
+            _focus={{ outline: "none" }}
             minW="55%"
             maxW="1000px"
             w="100%"
-            pt="24"
-            mt="-8"
+            pt="16"
         >
             <Heading 
-                as="h1" 
+                as="h2" 
+                id={headingId}
                 fontSize="4xl"
+                lineHeight="1.1"
                 fontFamily="'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace" 
                 color="blue.500" 
                 fontWeight="600"
@@ -30,7 +33,8 @@ const Title = ({ text, elementId, children }: TitleProps) => {
                 textAlign="left"
                 mb="8"
             >
-                // {text.toLowerCase().replace(/\s+/g, '_')}
+                <span aria-hidden="true">// {text.toLowerCase().replace(/\s+/g, '_')}</span>
+                <VisuallyHidden>{text}</VisuallyHidden>
             </Heading>
             {children}
         </Box>

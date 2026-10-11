@@ -7,7 +7,9 @@ export default defineConfig({
   base: '/',
   resolve: {
     alias: [
-      { find: '@', replacement: '/src' }
+      { find: '@', replacement: '/src' },
+      // Deep imports of Chakra's default tokens, see src/components/ui/provider.tsx
+      { find: /^chakra-theme\//, replacement: '/node_modules/@chakra-ui/react/dist/esm/theme/' }
     ]
   }
 })

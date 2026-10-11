@@ -1,4 +1,4 @@
-import { Box, Badge, Heading } from '@chakra-ui/react';
+import { Box, Badge, Heading, Icon } from '@chakra-ui/react';
 import { 
     SiTypescript, SiJavascript, SiPython, SiReact, SiVuedotjs, SiHtml5, SiCss3,
     SiNodedotjs, SiPostgresql, SiMysql, SiMongodb, SiDocker, SiApachemaven,
@@ -11,11 +11,12 @@ import {
     FaJava, FaDatabase, FaCloud, FaCode, FaTools, FaCogs, FaChartBar,
     FaProjectDiagram, FaUsers, FaCheckCircle, FaBug, FaLayerGroup
 } from 'react-icons/fa';
+import type { IconType } from 'react-icons';
 
 const Skills = () => {
     // Icon mapping for technologies with their brand colors
     const getSkillIcon = (skill: string) => {
-        const iconMap: { [key: string]: { icon: any, color: string } } = {
+        const iconMap: { [key: string]: { icon: IconType, color: string } } = {
             // Backend
             "Java": { icon: FaJava, color: "#ED8B00" },
             "TypeScript": { icon: SiTypescript, color: "#3178C6" },
@@ -178,12 +179,12 @@ const Skills = () => {
                         
                         {/* Skills Column */}
                         <Box>
-                            <Box display="flex" flexWrap="wrap" gap="2">
+                            <Box as="ul" listStyleType="none" m="0" p="0" display="flex" flexWrap="wrap" gap="2">
                                 {category.skills.map((skill, skillIndex) => {
                                     const skillData = getSkillIcon(skill);
                                     return (
+                                        <li key={skillIndex}>
                                         <Badge
-                                            key={skillIndex}
                                             variant="subtle"
                                             colorScheme="blue"
                                             px="3"
@@ -197,15 +198,15 @@ const Skills = () => {
                                             userSelect="text"
                                         >
                                             {skillData && (
-                                                <Box 
+                                                <Icon 
                                                     as={skillData.icon} 
                                                     boxSize="20px"
                                                     color={skillData.color}
-                                                    display="inline-block"
                                                 />
                                             )}
                                             {skill}
                                         </Badge>
+</li>
                                     );
                                 })}
                             </Box>
@@ -231,12 +232,12 @@ const Skills = () => {
                         </Heading>
                         
                         {/* Skills - Centered */}
-                        <Box display="flex" flexWrap="wrap" gap="2" justifyContent="center">
+                        <Box as="ul" listStyleType="none" m="0" p="0" display="flex" flexWrap="wrap" gap="2" justifyContent="center">
                             {category.skills.map((skill, skillIndex) => {
                                 const skillData = getSkillIcon(skill);
                                 return (
+                                    <li key={skillIndex}>
                                     <Badge
-                                        key={skillIndex}
                                         variant="subtle"
                                         colorScheme="blue"
                                         px="3"
@@ -250,15 +251,15 @@ const Skills = () => {
                                         userSelect="text"
                                     >
                                         {skillData && (
-                                            <Box 
+                                            <Icon 
                                                 as={skillData.icon} 
                                                 boxSize="16px"
                                                 color={skillData.color}
-                                                display="inline-block"
                                             />
                                         )}
                                         {skill}
                                     </Badge>
+</li>
                                 );
                             })}
                         </Box>
