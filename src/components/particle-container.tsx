@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useCallback, useRef, useState } from "react";
-import { Box, IconButton, Portal, type BoxProps } from "@chakra-ui/react";
-import { FaPause, FaPlay } from "react-icons/fa";
+import React, { useCallback } from "react";
+import { Box, type BoxProps } from "@chakra-ui/react";
 import { useColorMode } from "./ui/color-mode";
 import { usePrefersReducedMotion } from "./ui/use-reduced-motion";
 import Particles from "react-particles";
-import type { Container, Engine } from "tsparticles-engine";
+import type { Engine } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim";
 
 interface ParticleContainerProps extends BoxProps {
@@ -26,31 +25,14 @@ const ParticleContainer: React.FC<ParticleContainerProps> = ({
   const particleColor = colorMode === "light" ? "#1e40af" : "#60a5fa"; // Dark blue in light mode, light blue in dark mode
   const linkColor = colorMode === "light" ? "#1e40af" : "#60a5fa";
 
+  // Static particles when the user prefers reduced motion (2.2.2)
   const reducedMotion = usePrefersReducedMotion();
-  const [paused, setPaused] = useState(false);
-  const container = useRef<Container | undefined>();
-  const pausedRef = useRef(false);
-
-  const togglePaused = () => {
-    if (paused) container.current?.play();
-    else container.current?.pause();
-    pausedRef.current = !paused;
-    setPaused(!paused);
-  };
-
-  // The container is recreated on theme change, so re-apply the pause to it.
-  // Must stay referentially stable: react-particles reloads when it changes.
-  const particlesLoaded = useCallback(async (c?: Container) => {
-    container.current = c;
-    if (pausedRef.current) c?.pause();
-  }, []);
 
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
 
   return (
-    <>
     <Box
       position="absolute"
       width={width}
@@ -66,7 +48,6 @@ const ParticleContainer: React.FC<ParticleContainerProps> = ({
         key={colorMode} // Force re-render when theme changes
         id={`tsparticles-${colorMode}`}
         init={particlesInit}
-        loaded={particlesLoaded}
         style={{
           width: "100%",
           height: "100%",
@@ -147,28 +128,6 @@ const ParticleContainer: React.FC<ParticleContainerProps> = ({
         }}
       />
     </Box>
-      {/* Portalled to the end of <body> so its tab stop matches its bottom-corner position */}
-      {!reducedMotion && (
-        <Portal>
-        <IconButton
-          aria-label="Pause background animation"
-          aria-pressed={paused}
-          onClick={togglePaused}
-          position="fixed"
-          bottom="3"
-          left="3"
-          size="xs"
-          bg="bg/90"
-          borderWidth="1px"
-          borderColor="border"
-          color="fg"
-          zIndex="1000"
-        >
-          {paused ? <FaPlay /> : <FaPause />}
-        </IconButton>
-        </Portal>
-      )}
-    </>
   );
 };
 
