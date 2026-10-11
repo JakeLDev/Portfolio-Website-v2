@@ -21,8 +21,9 @@ const Title = ({ text, elementId, children }: TitleProps) => {
             mt="-8"
         >
             <Heading 
-                as="h1" 
+                as="h2" 
                 fontSize="4xl"
+                lineHeight="1.1"
                 fontFamily="'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace" 
                 color="blue.500" 
                 fontWeight="600"

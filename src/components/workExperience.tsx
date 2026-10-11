@@ -43,7 +43,7 @@ const WorkExperience = ({
                     </Box>
                 )}
                 <Box flex="1">
-                    <Heading as="h2" id={elementId} size="lg" mb="2">
+                    <Heading as="h3" id={elementId} size="lg" mb="2">
                         {position}
                     </Heading>
                     <Flex flexDir="row" alignItems="center" gap="2" mb="2" flexWrap="wrap">

@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { Flex, Container } from '@chakra-ui/react'
 import Title from './components/title'
 import './App.css'
@@ -9,16 +10,19 @@ import Education from './sections/education'
 import Skills from './sections/skills'
 import ContactCard from './components/contactCard'
 import Footer from './components/footer'
-import ParticleContainer from './components/particle-container'
+// Loaded separately so the particle library doesn't delay the first paint
+const ParticleContainer = lazy(() => import('./components/particle-container'))
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
     <>
-      <ParticleContainer
-            width={"100%"}
-            height={"45vh"} />
+      <Suspense fallback={null}>
+        <ParticleContainer
+              width={"100%"}
+              height={"45vh"} />
+      </Suspense>
       <Flex id="Page" justify="center">
         <Container centerContent minW="80%" maxW="2xl">
           <TitleBar />

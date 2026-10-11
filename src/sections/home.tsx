@@ -38,12 +38,12 @@ const Home = () => {
                     <Center>
                         <Image 
                             src={ JakeLyellTiny }
-                            alt="Profile Picture"
+                            alt="Jake Lyell"
                             height="250px"
                             margin={"20px"}
                         />
                     </Center>
-                    <Text textAlign="center" width="80%" maxW="2xl" fontSize={{ base: "2xl", md: "4xl" }} fontWeight="bold" mx="auto" lineHeight="2">
+                    <Text as="h1" textAlign="center" width="80%" maxW="2xl" fontSize={{ base: "2xl", md: "4xl" }} fontWeight="bold" mx="auto" lineHeight="2">
                         Hello! I'm Jake :)
                     </Text>
                         <Text textAlign="center" width="90%" maxW="3xl" fontSize={{ base: "lg", md: "2xl" }} fontWeight="bold" mx="auto" lineHeight="1.5">
