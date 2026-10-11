@@ -60,29 +60,25 @@ const TitleBar = () => {
 
     // Scroll spy functionality
     useEffect(() => {
-        const handleScroll = () => {
+        const ids = navigationItems.map(item => item.id);
+
+        // Which section scroll position alone says is current
+        const computeSection = () => {
             const scrollPosition = window.scrollY;
             const windowHeight = window.innerHeight;
             const documentHeight = document.documentElement.scrollHeight;
-            
-            // If we're at the very top, always show Home
-            if (scrollPosition < 200) {
-                setActiveSection("Page");
-                return;
-            }
 
-            // If we're near the bottom of the page, show the last section
-            if (scrollPosition + windowHeight >= documentHeight - 100) {
-                setActiveSection(navigationItems[navigationItems.length - 1].id);
-                return;
-            }
+            // If we're at the very top, always show Home
+            if (scrollPosition < 200) return "Page";
+
+            // At the very bottom, show the last section
+            if (scrollPosition + windowHeight >= documentHeight - 2) return ids[ids.length - 1];
 
             // Find which section title is closest to the top of the viewport
             let currentSection = "Page";
             let closestDistance = Infinity;
-            
-            for (const item of navigationItems) {
-                const element = document.getElementById(item.id);
+            for (const id of ids) {
+                const element = document.getElementById(id);
                 if (!element) continue;
                 const rect = element.getBoundingClientRect();
 
@@ -91,18 +87,73 @@ const TitleBar = () => {
                     const distanceFromTop = Math.abs(rect.top);
                     if (distanceFromTop < closestDistance) {
                         closestDistance = distanceFromTop;
-                        currentSection = item.id;
+                        currentSection = id;
                     }
                 }
             }
+            return currentSection;
+        };
 
-            setActiveSection(currentSection);
+        // A nav click pins its section. Short sections near the page end (Education) can't
+        // scroll to the top, so position alone would say Contact; at the bottom the two are
+        // both on screen and no threshold separates them. So the pin stays until the user
+        // scrolls down, or up past the pinned section, rather than flipping at some pixel.
+        let pinned: string | null = null;
+        let userScrolling = false; // false while the click's own smooth scroll is running
+        let lastY = window.scrollY;
+
+        const pin = (id: string) => {
+            if (!ids.includes(id)) return;
+            pinned = id;
+            userScrolling = false;
+            setActiveSection(id);
+        };
+        const onHashChange = () => pin(window.location.hash.slice(1));
+        // Clicking the link for the current hash doesn't fire hashchange
+        const onClick = (e: MouseEvent) => {
+            const href = (e.target as Element).closest?.('nav a[href^="#"]')?.getAttribute('href');
+            if (href) pin(href.slice(1));
+        };
+        const takeControl = () => { userScrolling = true; };
+        const onKeyDown = (e: KeyboardEvent) => {
+            if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(e.key)) takeControl();
+        };
+
+        const handleScroll = () => {
+            const goingDown = window.scrollY > lastY;
+            lastY = window.scrollY;
+            const computed = computeSection();
+
+            if (pinned) {
+                if (!userScrolling) return;
+                const pinnedIndex = ids.indexOf(pinned);
+                const computedIndex = ids.indexOf(computed);
+                // Keep the pin unless the user moved on to an earlier section or is scrolling down
+                if (computedIndex === pinnedIndex || (computedIndex > pinnedIndex && !goingDown)) {
+                    setActiveSection(pinned);
+                    return;
+                }
+                pinned = null;
+            }
+            setActiveSection(computed);
         };
 
         window.addEventListener('scroll', handleScroll);
+        window.addEventListener('hashchange', onHashChange);
+        window.addEventListener('click', onClick);
+        window.addEventListener('wheel', takeControl, { passive: true });
+        window.addEventListener('touchmove', takeControl, { passive: true });
+        window.addEventListener('keydown', onKeyDown);
         handleScroll();
 
-        return () => window.removeEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('hashchange', onHashChange);
+            window.removeEventListener('click', onClick);
+            window.removeEventListener('wheel', takeControl);
+            window.removeEventListener('touchmove', takeControl);
+            window.removeEventListener('keydown', onKeyDown);
+        };
     }, []);
 
     return (
