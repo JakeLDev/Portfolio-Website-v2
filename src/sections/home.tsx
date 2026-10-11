@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Box, Text, Flex, Link, Center, Image, Heading } from '@chakra-ui/react';
+import { Box, Text, Flex, Link, Center, Image, Heading, VisuallyHidden } from '@chakra-ui/react';
 import JakeLyellTiny from '../assets/JakeLyellTiny.jpg';
 import GithubButton from '../components/githubButton';
+import { usePrefersReducedMotion } from '../components/ui/use-reduced-motion';
 
 const Home = () => {
         // Function to calculate precise age with decimal places
@@ -13,23 +14,18 @@ const Home = () => {
             return ageInYears.toFixed(9); // 9 decimal places for maximum precision
         };
     
-        // Update age every 10ms for constantly changing animation
-        useEffect(() => {
-            const updateAge = () => {
-                setAge(calculateAge());
-            };
-    
-            // Set initial age
-            updateAge();
-    
-            // Update age every 10ms for constantly visible changes
-            const interval = setInterval(updateAge, 50);
-    
-            // Cleanup interval on component unmount
-            return () => clearInterval(interval);
-        }, []);
-        
+        const reducedMotion = usePrefersReducedMotion();
         const [age, setAge] = useState<string>(calculateAge());
+
+        // Tick every 50ms for the constantly changing effect, unless the user
+        // prefers reduced motion (2.2.2), in which case show a static value.
+        useEffect(() => {
+            setAge(calculateAge());
+            if (reducedMotion) return;
+            const interval = setInterval(() => setAge(calculateAge()), 50);
+            return () => clearInterval(interval);
+        }, [reducedMotion]);
+
         return (
             <Box as="section" id="Page" aria-labelledby="home-title" tabIndex={-1} _focus={{ outline: "none" }} position="relative" pt={{ base: "20", md: "40" }}>
                 <Box position="relative" zIndex="1">
@@ -50,6 +46,7 @@ const Home = () => {
                         I'm a{' '}
                         <Text 
                             as="span" 
+                            aria-hidden="true"
                             fontFamily="'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace"
                             fontSize={{ base: "lg", md: "2xl" }}
                             fontWeight="bold"
@@ -64,6 +61,7 @@ const Home = () => {
                         >
                             {age}
                         </Text>
+                        <VisuallyHidden>{Math.floor(parseFloat(age))}</VisuallyHidden>
                         
                         {' '}year old <Text fontStyle={"italic"} as="span">Full Stack Software Engineer</Text> at{' '}
                         
