@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useRef, useState } from "react";
-import { Box, IconButton } from "@chakra-ui/react";
+import { Box, IconButton, type BoxProps } from "@chakra-ui/react";
 import { FaPause, FaPlay } from "react-icons/fa";
 import { useColorMode } from "./ui/color-mode";
 import { usePrefersReducedMotion } from "./ui/use-reduced-motion";
@@ -9,10 +9,9 @@ import Particles from "react-particles";
 import type { Container, Engine } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim";
 
-interface ParticleContainerProps {
+interface ParticleContainerProps extends BoxProps {
   width?: string | number;
   height?: string | number;
-  [key: string]: any; // Allow other Box props to be passed through
 }
 
 const ParticleContainer: React.FC<ParticleContainerProps> = ({ 

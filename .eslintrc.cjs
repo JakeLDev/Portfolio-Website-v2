@@ -9,6 +9,10 @@ module.exports = {
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
+  overrides: [
+    // Chakra CLI snippets export hooks next to components
+    { files: ['src/components/ui/**'], rules: { 'react-refresh/only-export-components': 'off' } },
+  ],
   rules: {
     'react-refresh/only-export-components': [
       'warn',

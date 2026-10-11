@@ -11,11 +11,12 @@ import {
     FaJava, FaDatabase, FaCloud, FaCode, FaTools, FaCogs, FaChartBar,
     FaProjectDiagram, FaUsers, FaCheckCircle, FaBug, FaLayerGroup
 } from 'react-icons/fa';
+import type { IconType } from 'react-icons';
 
 const Skills = () => {
     // Icon mapping for technologies with their brand colors
     const getSkillIcon = (skill: string) => {
-        const iconMap: { [key: string]: { icon: any, color: string } } = {
+        const iconMap: { [key: string]: { icon: IconType, color: string } } = {
             // Backend
             "Java": { icon: FaJava, color: "#ED8B00" },
             "TypeScript": { icon: SiTypescript, color: "#3178C6" },
