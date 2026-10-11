@@ -7,10 +7,10 @@ import Home from './sections/home'
 import Projects from './sections/projects'
 import WorkExperiences from './sections/workExperiences'
 import Education from './sections/education'
-import Skills from './sections/skills'
 import ContactCard from './components/contactCard'
 import Footer from './components/footer'
-// Loaded separately so the particle library doesn't delay the first paint
+// Loaded separately so the particle library and skill icons don't delay the first paint
+const Skills = lazy(() => import('./sections/skills'))
 const ParticleContainer = lazy(() => import('./components/particle-container'))
 
 function App() {
@@ -31,7 +31,9 @@ function App() {
             <Projects />
           </Title>
           <Title text="Skills" elementId="SkillsTitle">
-            <Skills />
+            <Suspense fallback={null}>
+              <Skills />
+            </Suspense>
           </Title>
           <Title text="Work Experience" elementId="WorkExperienceTitle">
             <WorkExperiences />
