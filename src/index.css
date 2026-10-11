@@ -66,9 +66,13 @@ button {
 button:hover {
   border-color: #646cff;
 }
-button:focus,
+/* Keyboard-only ring, same colours as the Chakra link ring (blue.600 / blue.300) */
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+html.dark button:focus-visible {
+  outline-color: #93c5fd;
 }
 
 /* Light mode styles */

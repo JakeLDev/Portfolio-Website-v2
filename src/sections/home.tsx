@@ -102,8 +102,13 @@ const Home = () => {
                         alignItems="center"
                         gap="2"
                         borderRadius="full"
-                        outline="none"
-                        _focus={{ transform: 'scale(1.1)' }}
+                        _focusVisible={{ 
+                        transform: 'scale(1.1)',
+                        outline: '2px solid',
+                        outlineOffset: '2px',
+                        outlineColor: 'blue.600',
+                        _dark: { outlineColor: 'blue.300' }
+            }}
                         _hover={{ transform: 'scale(1.05)', color: 'purple.200' }}
                         _active={{ transform: 'scale(1.05)' }}
                         transition="all 0.2s"
