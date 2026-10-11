@@ -1,4 +1,4 @@
-import { Link } from '@chakra-ui/react';
+import ExternalLink from './externalLink';
 
 interface GithubButtonProps {
     githubLink: string;
@@ -8,7 +8,7 @@ interface GithubButtonProps {
 
 const GithubButton = ({githubLink, text, elementId}: GithubButtonProps) => {
     return (
-        <Link 
+        <ExternalLink 
             id={ elementId }
             href={ githubLink }
             bg="#171515"
@@ -32,10 +32,9 @@ const GithubButton = ({githubLink, text, elementId}: GithubButtonProps) => {
             cursor="pointer"
             borderWidth="2px"
             borderColor="gray.700"
-            target='_blank'
         >
             { text ? text : "GitHub" }
-        </Link>
+        </ExternalLink>
     )
 };
 export default GithubButton;

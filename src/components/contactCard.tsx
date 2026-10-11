@@ -1,4 +1,5 @@
 import { Box, Flex, Text, Link, Icon, VStack } from "@chakra-ui/react";
+import ExternalLink from "./externalLink";
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const ContactCard = () => {
@@ -61,8 +62,6 @@ const ContactCard = () => {
                     <VStack>
                         <Link 
                             href="mailto:me@jakelyell.dev" 
-                            target="_blank" 
-                            rel="noreferrer"
                             bg="blue.600"
                             color="white"
                             px={{ base: "6", md: "8" }}
@@ -80,11 +79,10 @@ const ContactCard = () => {
                         
                         <Flex gap={{ base: "3", md: "4" }} justify="center" wrap="wrap">
                             {mediaLinks.map((media) => (
-                                <Link
+                                <ExternalLink
                                     key={media.id}
                                     href={media.href}
-                                    target="_blank"
-                                    rel="noreferrer"
+                                    iconOnly
                                     p={{ base: "2.5", md: "3" }}
                                     borderRadius="full"
                                     bg="gray.100"
@@ -95,7 +93,7 @@ const ContactCard = () => {
                                         transform: "translateY(-2px)"
                                     }}
                                     transition="all 0.2s"
-                                    aria-label={media.label}
+                                    aria-label={`${media.label} (opens in new tab)`}
                                 >
                                     <Icon 
                                         as={media.icon}
@@ -104,7 +102,7 @@ const ContactCard = () => {
                                         _dark={{ color: "gray.300" }}
                                         _hover={{ color: "blue.600", _dark: { color: "blue.300" } }}
                                     />
-                                </Link>
+                                </ExternalLink>
                             ))}
                         </Flex>
                     </VStack>

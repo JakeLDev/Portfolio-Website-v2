@@ -1,4 +1,5 @@
-import { Box, Flex, Text, Heading, Badge, Link } from '@chakra-ui/react';
+import { Box, Flex, Text, Heading, Badge } from '@chakra-ui/react';
+import ExternalLink from '../components/externalLink';
 import UWALogo from '../assets/uwa-logo.png';
 
 const Education = () => {
@@ -25,18 +26,16 @@ const Education = () => {
                                 Bachelor of Science | Double Major in <strong><u>Computer Science</u></strong> and <strong><u>Data Science</u></strong>
                             </Heading>
                             <Flex flexDir="row" alignItems="center" gap="2" mb="2" flexWrap="wrap">
-                                <Link 
+                                <ExternalLink 
                                     href="https://www.uwa.edu.au/"
                                     fontSize="xl"
                                     fontWeight="semibold"
                                     color="blue.600"
                                     _dark={{ color: "blue.300" }}
                                     _hover={{ color: 'blue.800', textDecoration: 'underline', _dark: { color: 'blue.200' } }}
-                                    target="_blank"
-                                    rel="noreferrer noopener"
                                 >
                                     University of Western Australia (UWA)
-                                </Link>
+                                </ExternalLink>
                                 <Text fontSize="md" color="gray.600" _dark={{ color: "gray.300" }}>
                                     • Perth, Australia
                                 </Text>

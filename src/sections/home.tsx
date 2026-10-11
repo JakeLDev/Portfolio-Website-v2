@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Box, Text, Flex, Link, Center, Image, Heading, VisuallyHidden } from '@chakra-ui/react';
+import { Box, Text, Flex, Center, Image, Heading, VisuallyHidden } from '@chakra-ui/react';
+import ExternalLink from '../components/externalLink';
 import JakeLyellTiny from '../assets/JakeLyellTiny.jpg';
 import GithubButton from '../components/githubButton';
 import { usePrefersReducedMotion } from '../components/ui/use-reduced-motion';
@@ -65,17 +66,16 @@ const Home = () => {
                         
                         {' '}year old <Text fontStyle={"italic"} as="span">Full Stack Software Engineer</Text> at{' '}
                         
-                        <Link 
+                        <ExternalLink 
                             color="#0052CC" 
                             _dark={{ color: "blue.300" }}
                             _hover={{ color: "blue.800", _dark: { color: "blue.200" } }}
                             fontWeight="extrabold"
                             textDecoration="underline"
                             href='https://www.atlassian.com/' 
-                            target="_blank"
                         >
                             Atlassian
-                        </Link>
+                        </ExternalLink>
                         {' '}in Sydney, Australia.
                         </Text>
                     <Text textAlign="center" width="90%" maxW="3xl" fontSize={{ base: "lg", md: "2xl" }} fontWeight="bold" mx="auto" paddingTop="3" lineHeight="1.5">
@@ -91,7 +91,7 @@ const Home = () => {
                         text='GitHub'
                         elementId='github-button'
                     />
-                    <Link 
+                    <ExternalLink 
                         id='linkedin-button' 
                         href="https://www.linkedin.com/in/jake-lyell/"
                         bg="blue.600"
@@ -114,10 +114,9 @@ const Home = () => {
                         transition="all 0.2s"
                         borderWidth="2px"
                         borderColor="blue.700"
-                        target="_blank"
                     >
                         LinkedIn
-                    </Link>
+                    </ExternalLink>
                 </Flex>
                 
                 </Box>

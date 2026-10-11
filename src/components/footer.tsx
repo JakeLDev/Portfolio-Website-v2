@@ -1,4 +1,5 @@
-import { Box, Text, Link, Icon, VisuallyHidden } from "@chakra-ui/react";
+import { Box, Text, Icon, VisuallyHidden } from "@chakra-ui/react";
+import ExternalLink from './externalLink';
 import { FaHeart } from 'react-icons/fa';
 
 const Footer = () => {
@@ -12,18 +13,16 @@ const Footer = () => {
             _dark={{ bg: "gray.900", borderColor: "gray.600" }}
         >
             <Text fontSize="sm" color="gray.400">
-                <Link 
+                <ExternalLink 
                     href="https://github.com/JakeLDev/Portfolio-Website-v2"
-                    target="_blank"
-                    rel="noreferrer"
                     color="gray.800"
                     textDecoration={"underline"}
                     _dark={{ color: "gray.300" }}
                     _hover={{ color: "black", _dark: { color: "white" } }}
                     transition="color 0.2s"
                 >
-                    Built with <Icon as={FaHeart} color="red.600" _dark={{ color: "red.400" }} mx="1" /><VisuallyHidden>love</VisuallyHidden> using React & TypeScript
-                </Link>
+                    Built with <Icon as={FaHeart} color="red.600" _dark={{ color: "red.400" }} mx="1" /><VisuallyHidden>love</VisuallyHidden> using React & TypeScript<VisuallyHidden>, source code on GitHub</VisuallyHidden>
+                </ExternalLink>
             </Text>
             <Text fontSize="sm" color="gray.700" _dark={{ color: "gray.400" }} mt="2">
                 Updated July 2025

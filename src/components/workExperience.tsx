@@ -1,4 +1,5 @@
-import { Box, Heading, Text, Flex, Link, Badge } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex, Badge } from '@chakra-ui/react';
+import ExternalLink from './externalLink';
 
 interface WorkExperienceProps {
     company: string;
@@ -48,18 +49,16 @@ const WorkExperience = ({
                     </Heading>
                     <Flex flexDir="row" alignItems="center" gap="2" mb="2" flexWrap="wrap">
                         {companyLink ? (
-                            <Link 
+                            <ExternalLink 
                                 href={companyLink}
                                 fontSize="xl"
                                 fontWeight="semibold"
                                 color="blue.600"
                                 _dark={{ color: "blue.300" }}
                                 _hover={{ color: 'blue.800', textDecoration: 'underline', _dark: { color: 'blue.200' } }}
-                                target="_blank"
-                                rel="noreferrer noopener"
                             >
                                 {company}
-                            </Link>
+                            </ExternalLink>
                         ) : (
                             <Text fontSize="xl" fontWeight="semibold" color="gray.700">
                                 {company}

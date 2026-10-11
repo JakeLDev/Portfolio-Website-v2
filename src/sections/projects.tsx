@@ -149,6 +149,7 @@ const TwitterHygieneBot = (
         imageAlt='Twitter profile for HygieneBot with a SpongeBob banner and the bio "Scheduled tweets for reminding you about hygiene!"'
         githubLink="https://github.com/JakeLDev/Twitter-Hygiene-Bot"
         liveLink="https://twitter.com/HygieneBot"
+        liveLinkText="Twitter Profile"
         status="Live"
         duration="Personal Project"
         skills={["AWS Lambda", "AWS EventBridge", "Twitter API", "Python", "Serverless"]}

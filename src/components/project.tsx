@@ -1,4 +1,5 @@
-import { Box, Heading, Text, Flex, Link, Badge, Image } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex, Badge, VisuallyHidden, Image } from '@chakra-ui/react';
+import ExternalLink from './externalLink';
 
 interface ProjectProps {
     title: string;
@@ -6,6 +7,7 @@ interface ProjectProps {
     elementId: string;
     githubLink?: string;
     liveLink?: string;
+    liveLinkText?: string;
     patchNotesLink?: string;
     image?: string;
     imageAlt?: string;
@@ -22,6 +24,7 @@ const Project = ({
     elementId,
     githubLink,
     liveLink,
+    liveLinkText = "Live Demo",
     patchNotesLink,
     image,
     imageAlt = "",
@@ -32,6 +35,8 @@ const Project = ({
 }: ProjectProps) => {
     return (
         <Box 
+            as="article"
+            aria-labelledby={elementId}
             border={"1px solid"} 
             borderColor="gray.300" 
             borderRadius="lg" 
@@ -97,10 +102,8 @@ const Project = ({
                     
                     <Flex flexDir="row" alignItems="center" justifyContent="flex-start" gap="3" mt="4">
             { githubLink && 
-                <Link 
+                <ExternalLink 
                     href={githubLink}
-                    target="_blank"
-                    rel="noreferrer noopener"
                     bg="transparent"
                     color="gray.600"
                     _dark={{ color: "gray.300", borderColor: "gray.600" }}
@@ -123,14 +126,12 @@ const Project = ({
                     fontWeight="medium"
                     textDecoration="none"
                 >
-                    GitHub
-                </Link>
+                    GitHub<VisuallyHidden> repository for {title}</VisuallyHidden>
+                </ExternalLink>
             }
             { liveLink && 
-                <Link 
+                <ExternalLink 
                     href={liveLink}
-                    target="_blank"
-                    rel="noreferrer noopener"
                     bg="blue.600"
                     color="white"
                     px="4" 
@@ -148,14 +149,12 @@ const Project = ({
                     fontWeight="medium"
                     textDecoration="none"
                 >
-                    Live Demo
-                </Link>
+                    {liveLinkText}<VisuallyHidden> for {title}</VisuallyHidden>
+                </ExternalLink>
             }
             { patchNotesLink && 
-                <Link 
+                <ExternalLink 
                     href={patchNotesLink}
-                    target="_blank"
-                    rel="noreferrer noopener"
                     bg="transparent"
                     color="gray.600"
                     _dark={{ color: "gray.300", borderColor: "gray.600" }}
@@ -178,14 +177,12 @@ const Project = ({
                     fontWeight="medium"
                     textDecoration="none"
                 >
-                    Patch Notes
-                </Link>
+                    Patch Notes<VisuallyHidden> for {title}</VisuallyHidden>
+                </ExternalLink>
             }
             { linkedinLink && 
-                <Link 
+                <ExternalLink 
                     href={linkedinLink}
-                    target="_blank"
-                    rel="noreferrer noopener"
                     bg="transparent"
                     color="gray.600"
                     _dark={{ color: "gray.300", borderColor: "gray.600" }}
@@ -208,8 +205,8 @@ const Project = ({
                     fontWeight="medium"
                     textDecoration="none"
                 >
-                    LinkedIn
-                </Link>
+                    LinkedIn<VisuallyHidden> page for {title}</VisuallyHidden>
+                </ExternalLink>
             }
                     </Flex>
                 </Box>
