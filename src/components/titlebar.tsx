@@ -1,28 +1,62 @@
-import { useState, useEffect } from "react";
-import { Tabs, Box, Flex, IconButton, VStack, Text } from '@chakra-ui/react';
+import { useState, useEffect, useRef } from "react";
+import { Box, Flex, IconButton, CloseButton, Drawer, Portal, Link } from '@chakra-ui/react';
 import { ColorModeButton } from "./ui/color-mode";
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars } from 'react-icons/fa';
+
+const navigationItems = [
+    { id: "Page", label: "Home" },
+    { id: "ProjectsTitle", label: "Projects" },
+    { id: "SkillsTitle", label: "Skills" },
+    { id: "WorkExperienceTitle", label: "Work Experience" },
+    { id: "EducationTitle", label: "Education" },
+    { id: "ContactTitle", label: "Contact" }
+];
+
+interface NavListProps {
+    activeSection: string;
+    direction: "row" | "column";
+    onNavigate?: (id: string) => void;
+}
+
+// One list of in-page links, shared by the desktop bar and the mobile drawer.
+const NavList = ({ activeSection, direction, onNavigate }: NavListProps) => (
+    <Flex as="ul" listStyleType="none" m="0" p="0" gap="1" flexDir={direction} colorPalette="blue">
+        {navigationItems.map((item) => {
+            const active = activeSection === item.id;
+            return (
+                <li key={item.id}>
+                    <Link
+                        href={`#${item.id}`}
+                        aria-current={active ? "location" : undefined}
+                        onClick={onNavigate ? (e) => { e.preventDefault(); onNavigate(item.id); } : undefined}
+                        display="block"
+                        px="3"
+                        py="1.5"
+                        borderRadius="md"
+                        textAlign={direction === "column" ? "center" : undefined}
+                        fontSize={direction === "column" ? "lg" : "md"}
+                        fontWeight={active ? "bold" : "medium"}
+                        color={active ? "colorPalette.fg" : "fg"}
+                        bg={active ? "colorPalette.subtle" : "transparent"}
+                        // Non-colour cue for the current section: a 2px underline bar
+                        boxShadow={active ? "inset 0 -2px 0 0 currentColor" : "none"}
+                        textDecoration="none"
+                        _hover={{ bg: active ? "colorPalette.muted" : "bg.muted", textDecoration: "none" }}
+                    >
+                        {item.label}
+                    </Link>
+                </li>
+            );
+        })}
+    </Flex>
+);
 
 const TitleBar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState("Page");
-
-    const handleTabClick = (sectionId: string) => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-        }
-        // Close mobile menu after navigation
-        setIsMenuOpen(false);
-    };
-
-    const navigationItems = [
-        { id: "Page", label: "Home" },
-        { id: "ProjectsTitle", label: "Projects" },
-        { id: "SkillsTitle", label: "Skills" },
-        { id: "WorkExperienceTitle", label: "Work Experience" },
-        { id: "EducationTitle", label: "Education" }
-    ];
+    // Section chosen in the drawer; navigated to once the drawer has closed so
+    // the drawer's focus-restore to the hamburger can't steal focus from it.
+    const pendingSection = useRef<string | null>(null);
 
     // Scroll spy functionality
     useEffect(() => {
@@ -37,35 +71,27 @@ const TitleBar = () => {
                 return;
             }
 
-            // If we're near the bottom of the page, show the last section (Education)
+            // If we're near the bottom of the page, show the last section
             if (scrollPosition + windowHeight >= documentHeight - 100) {
-                setActiveSection("EducationTitle");
+                setActiveSection(navigationItems[navigationItems.length - 1].id);
                 return;
             }
-
-            const sections = navigationItems.map(item => ({
-                id: item.id,
-                element: document.getElementById(item.id)
-            })).filter(section => section.element);
 
             // Find which section title is closest to the top of the viewport
             let currentSection = "Page";
             let closestDistance = Infinity;
             
-            for (const section of sections) {
-                if (section.element) {
-                    const rect = section.element.getBoundingClientRect();
-                    
-                    // Only consider sections that are visible and not too far down
-                    if (rect.top <= windowHeight * 0.6 && rect.bottom > -100) {
-                        // Calculate distance from top of viewport
-                        const distanceFromTop = Math.abs(rect.top);
-                        
-                        // Prefer sections whose title is closer to the top
-                        if (distanceFromTop < closestDistance) {
-                            closestDistance = distanceFromTop;
-                            currentSection = section.id;
-                        }
+            for (const item of navigationItems) {
+                const element = document.getElementById(item.id);
+                if (!element) continue;
+                const rect = element.getBoundingClientRect();
+
+                // Only consider sections that are visible and not too far down
+                if (rect.top <= windowHeight * 0.6 && rect.bottom > -100) {
+                    const distanceFromTop = Math.abs(rect.top);
+                    if (distanceFromTop < closestDistance) {
+                        closestDistance = distanceFromTop;
+                        currentSection = item.id;
                     }
                 }
             }
@@ -81,130 +107,94 @@ const TitleBar = () => {
 
     return (
         <>
-            {/* Color Mode Button - Fixed top-right for all screen sizes */}
-            <Box 
-                position="fixed" 
-                top="5" 
-                right="5" 
-                zIndex="1000"
-            >
+            {/* Desktop Navigation */}
+            <Flex justify="center" p="2" display={{ base: "none", md: "flex" }}>
+                <Box 
+                    as="nav"
+                    aria-label="Main"
+                    position="fixed" 
+                    minWidth="465px" 
+                    m="0" 
+                    zIndex="999"
+                    bg="bg/90" 
+                    borderColor={"blackAlpha.300"} 
+                    borderWidth="1px" 
+                    borderRadius="md" 
+                    padding="1" 
+                    style={{ backdropFilter: "blur(10px)" }}
+                >
+                    <NavList activeSection={activeSection} direction="row" />
+                </Box>
+            </Flex>
+
+            {/* Mobile Hamburger Menu + Drawer */}
+            <Box display={{ base: "block", md: "none" }}>
+                <Drawer.Root
+                    placement="start"
+                    size="xs"
+                    open={isMenuOpen}
+                    onOpenChange={(e) => setIsMenuOpen(e.open)}
+                    onExitComplete={() => {
+                        if (pendingSection.current) {
+                            window.location.hash = pendingSection.current;
+                            pendingSection.current = null;
+                        }
+                    }}
+                >
+                    <Box position="fixed" top="3" left="3" zIndex="1001">
+                        <Drawer.Trigger asChild>
+                            <IconButton
+                                aria-label="Menu"
+                                bg="bg/90"
+                                borderColor={"blackAlpha.200"}
+                                borderWidth="1px"
+                                borderRadius="md"
+                                style={{ backdropFilter: "blur(10px)" }}
+                                size="sm"
+                                color="gray.800"
+                                _dark={{ color: "white" }}
+                            >
+                                <FaBars />
+                            </IconButton>
+                        </Drawer.Trigger>
+                    </Box>
+                    <Portal>
+                        <Drawer.Backdrop />
+                        <Drawer.Positioner>
+                            <Drawer.Content>
+                                <Drawer.Header>
+                                    <Drawer.Title srOnly>Site navigation</Drawer.Title>
+                                </Drawer.Header>
+                                <Drawer.Body>
+                                    <nav aria-label="Main">
+                                        <NavList
+                                            activeSection={activeSection}
+                                            direction="column"
+                                            onNavigate={(id) => {
+                                                pendingSection.current = id;
+                                                setIsMenuOpen(false);
+                                            }}
+                                        />
+                                    </nav>
+                                </Drawer.Body>
+                                <Drawer.CloseTrigger asChild>
+                                    <CloseButton aria-label="Close menu" size="sm" position="absolute" top="2" right="2" />
+                                </Drawer.CloseTrigger>
+                            </Drawer.Content>
+                        </Drawer.Positioner>
+                    </Portal>
+                </Drawer.Root>
+            </Box>
+
+            {/* Color Mode Button - after the nav in the DOM so tab order matches the visual order */}
+            <Box position="fixed" top="5" right="5" zIndex="1000">
                 <ColorModeButton 
-                    background={"whiteAlpha.200"} 
+                    bg="bg/90" 
                     borderColor={"blackAlpha.200"}
                     borderWidth="1px"
                     borderRadius="md" 
                     style={{ backdropFilter: "blur(10px)" }} 
                 />
-            </Box>
-            
-            {/* Desktop Navigation */}
-            <Flex justify="center" p="2" display={{ base: "none", md: "flex" }}>
-                <Box position="fixed" minWidth="465px" m="0" zIndex="999">
-                    <Tabs.Root 
-                        value={activeSection}
-                        colorPalette="blue" 
-                        size="md" 
-                        variant="subtle" 
-                        background={"whiteAlpha.200"} 
-                        borderColor={"blackAlpha.300"} 
-                        borderWidth="1px" 
-                        borderRadius="md" 
-                        padding="1" 
-                        style={{ backdropFilter: "blur(10px)" }}
-                    >
-                        <Tabs.List>
-                            {navigationItems.map((item) => (
-                                <Tabs.Trigger 
-                                    key={item.id}
-                                    value={item.id} 
-                                    onClick={() => handleTabClick(item.id)}
-                                >
-                                    {item.label}
-                                </Tabs.Trigger>
-                            ))}
-                        </Tabs.List>
-                    </Tabs.Root>
-                </Box>
-            </Flex>
-
-            {/* Mobile Hamburger Menu */}
-            <Box display={{ base: "block", md: "none" }}>
-                {/* Hamburger Button */}
-                <Box 
-                    position="fixed" 
-                    top="3" 
-                    left="3" 
-                    zIndex="1001"
-                >
-                    <IconButton
-                        aria-label="Open menu"
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        background={"whiteAlpha.200"}
-                        borderColor={"blackAlpha.200"}
-                        borderWidth="1px"
-                        borderRadius="md"
-                        style={{ backdropFilter: "blur(10px)" }}
-                        size="sm"
-                        color="gray.800"
-                        _dark={{ color: "white" }}
-                    >
-                        {isMenuOpen ? <FaTimes /> : <FaBars />}
-                    </IconButton>
-                </Box>
-
-                {/* Mobile Menu Overlay */}
-                {isMenuOpen && (
-                    <Box
-                        position="fixed"
-                        top="0"
-                        left="0"
-                        right="0"
-                        bottom="0"
-                        bg="blackAlpha.600"
-                        zIndex="1000"
-                        onClick={() => setIsMenuOpen(false)}
-                    >
-                        <VStack
-                            position="fixed"
-                            top="16"
-                            left="3"
-                            right="3"
-                            bg="white"
-                            _dark={{ bg: "gray.800" }}
-                            borderRadius="md"
-                            p="4"
-                            boxShadow="xl"
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            {navigationItems.map((item) => (
-                                <Text
-                                    key={item.id}
-                                    w="100%"
-                                    p="3"
-                                    textAlign="center"
-                                    cursor="pointer"
-                                    borderRadius="md"
-                                    bg={activeSection === item.id ? "blue.100" : "transparent"}
-                                    _dark={{ 
-                                        bg: activeSection === item.id ? "blue.800" : "transparent", color: activeSection === item.id ? "blue.200" : "inherit"
-                                    }}
-                                    _hover={{ 
-                                        bg: activeSection === item.id ? "blue.200" : "blue.50", 
-                                        _dark: { 
-                                            bg: activeSection === item.id ? "blue.700" : "blue.900" 
-                                        } 
-                                    }}
-                                    onClick={() => handleTabClick(item.id)}
-                                    fontSize="lg"
-                                    fontWeight={activeSection === item.id ? "bold" : "medium"}
-                                    color={activeSection === item.id ? "blue.700" : "inherit"}
-                                >
-                                    {item.label}
-                                </Text>
-                            ))}
-                        </VStack>
-                    </Box>
-                )}
             </Box>
         </>
     );

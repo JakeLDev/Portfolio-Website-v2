@@ -1,4 +1,5 @@
-import { Box, Flex, Text, Heading, Badge, Link } from '@chakra-ui/react';
+import { Box, Flex, Text, Heading, Badge } from '@chakra-ui/react';
+import ExternalLink from '../components/externalLink';
 import UWALogo from '../assets/uwa-logo.png';
 
 const Education = () => {
@@ -10,7 +11,7 @@ const Education = () => {
                             <Box flexShrink="0">
                                 <img 
                                     src={UWALogo} 
-                                    alt="UWA logo" 
+                                    alt="" 
                                     style={{ 
                                         maxWidth: '100px', 
                                         maxHeight: '100px', 
@@ -25,18 +26,17 @@ const Education = () => {
                                 Bachelor of Science | Double Major in <strong><u>Computer Science</u></strong> and <strong><u>Data Science</u></strong>
                             </Heading>
                             <Flex flexDir="row" alignItems="center" gap="2" mb="2" flexWrap="wrap">
-                                <Link 
+                                <ExternalLink 
                                     href="https://www.uwa.edu.au/"
                                     fontSize="xl"
                                     fontWeight="semibold"
                                     color="blue.600"
-                                    _hover={{ color: 'blue.800', textDecoration: 'underline' }}
-                                    target="_blank"
-                                    rel="noreferrer noopener"
+                                    _dark={{ color: "blue.300" }}
+                                    _hover={{ color: 'blue.800', textDecoration: 'underline', _dark: { color: 'blue.200' } }}
                                 >
                                     University of Western Australia (UWA)
-                                </Link>
-                                <Text fontSize="md" color="gray.400" _dark={{ color: "gray.300" }}>
+                                </ExternalLink>
+                                <Text fontSize="md" color="gray.600" _dark={{ color: "gray.300" }}>
                                     • Perth, Australia
                                 </Text>
                             </Flex>
@@ -57,7 +57,7 @@ const Education = () => {
                         <Text fontSize="sm" fontWeight="semibold" color="gray.600" _dark={{ color: "gray.400" }} mb="2">
                             Key Areas of Study:
                         </Text>
-                        <Flex flexWrap="wrap" gap="2">
+                        <Flex as="ul" listStyleType="none" m="0" p="0" flexWrap="wrap" gap="2">
                             {[
                                 "Algorithms & Data Structures",
                                 "Software Engineering",
@@ -70,8 +70,8 @@ const Education = () => {
                                 "Python Programming",
                                 "Java Programming"
                             ].map((subject, index) => (
-                                <Badge 
-                                    key={index}
+                                <li key={index}>
+                                <Badge
                                     colorScheme="purple" 
                                     variant="subtle"
                                     px="3"
@@ -83,6 +83,7 @@ const Education = () => {
                                 >
                                     {subject}
                                 </Badge>
+</li>
                             ))}
                         </Flex>
                     </Box>

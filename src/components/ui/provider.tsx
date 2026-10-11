@@ -3,7 +3,7 @@
 import { ChakraProvider, createSystem, defaultBaseConfig, defineConfig, mergeConfigs } from "@chakra-ui/react"
 import {
   badgeRecipe, buttonRecipe, containerRecipe, headingRecipe,
-  iconRecipe, linkRecipe, skeletonRecipe, tabsSlotRecipe,
+  drawerSlotRecipe, iconRecipe, linkRecipe, skeletonRecipe, tabsSlotRecipe,
 } from "@chakra-ui/react/theme"
 // Chakra doesn't export its default tokens on their own, only bundled with every
 // component recipe (~200 KB). These deep imports (aliased in vite.config.ts and
@@ -41,7 +41,7 @@ import {
   type ColorModeProviderProps,
 } from "./color-mode"
 
-const system = createSystem(mergeConfigs(defaultBaseConfig, defineConfig({
+const baseConfig = defineConfig({
   preflight: true,
   cssVarsPrefix: "chakra",
   cssVarsRoot: ":where(html, .chakra-theme)",
@@ -58,12 +58,32 @@ const system = createSystem(mergeConfigs(defaultBaseConfig, defineConfig({
       badge: badgeRecipe, button: buttonRecipe, container: containerRecipe, heading: headingRecipe,
       icon: iconRecipe, link: linkRecipe, skeleton: skeletonRecipe,
     },
-    slotRecipes: { tabs: tabsSlotRecipe },
+    slotRecipes: { tabs: tabsSlotRecipe, drawer: drawerSlotRecipe },
     textStyles,
     layerStyles,
     animationStyles,
   },
-})))
+})
+
+// The default focus ring comes from the (gray) colorPalette: gray.400 is only
+// 2.56:1 on white. Use blue.600 / blue.300, which clear 3:1 on both page
+// backgrounds. Only the ring token changes, so the gray components keep their look.
+const config = defineConfig({
+  theme: {
+    semanticTokens: {
+      colors: {
+        gray: {
+          focusRing: {
+            value: { _light: "{colors.blue.600}", _dark: "{colors.blue.300}" },
+          },
+        },
+      },
+    },
+  },
+})
+
+
+const system = createSystem(mergeConfigs(defaultBaseConfig, baseConfig, config))
 
 export function Provider(props: ColorModeProviderProps) {
   return (

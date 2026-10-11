@@ -1,4 +1,5 @@
-import { Box, Heading, Text, Flex, Link, Badge, Image } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex, Badge, VisuallyHidden, Image } from '@chakra-ui/react';
+import ExternalLink from './externalLink';
 
 interface ProjectProps {
     title: string;
@@ -6,8 +7,10 @@ interface ProjectProps {
     elementId: string;
     githubLink?: string;
     liveLink?: string;
+    liveLinkText?: string;
     patchNotesLink?: string;
     image?: string;
+    imageAlt?: string;
     imageHeight?: string;
     linkedinLink?: string;
     skills?: string[];
@@ -21,8 +24,10 @@ const Project = ({
     elementId,
     githubLink,
     liveLink,
+    liveLinkText = "Live Demo",
     patchNotesLink,
     image,
+    imageAlt = "",
     linkedinLink,
     skills,
     duration,
@@ -30,6 +35,8 @@ const Project = ({
 }: ProjectProps) => {
     return (
         <Box 
+            as="article"
+            aria-labelledby={elementId}
             border={"1px solid"} 
             borderColor="gray.300" 
             borderRadius="lg" 
@@ -72,10 +79,10 @@ const Project = ({
                                 <Text fontSize="md" fontWeight="semibold" color="gray.600" _dark={{ color: "gray.400" }} mb="2">
                                     Technologies Used:
                                 </Text>
-                                <Flex flexWrap="wrap" gap="2">
+                                <Flex as="ul" listStyleType="none" m="0" p="0" flexWrap="wrap" gap="2">
                                     {skills.map((skill, index) => (
-                                        <Badge 
-                                            key={index}
+                                        <li key={index}>
+                                        <Badge
                                             colorScheme="blue" 
                                             variant="subtle"
                                             px="3"
@@ -87,6 +94,7 @@ const Project = ({
                                         >
                                             {skill}
                                         </Badge>
+</li>
                                     ))}
                                 </Flex>
                             </Box>
@@ -95,10 +103,8 @@ const Project = ({
                     
                     <Flex flexDir="row" alignItems="center" justifyContent="flex-start" gap="3" mt="4">
             { githubLink && 
-                <Link 
+                <ExternalLink 
                     href={githubLink}
-                    target="_blank"
-                    rel="noreferrer noopener"
                     bg="transparent"
                     color="gray.600"
                     _dark={{ color: "gray.300", borderColor: "gray.600" }}
@@ -121,17 +127,14 @@ const Project = ({
                     fontWeight="medium"
                     textDecoration="none"
                 >
-                    GitHub
-                </Link>
+                    GitHub<VisuallyHidden> repository for {title}</VisuallyHidden>
+                </ExternalLink>
             }
             { liveLink && 
-                <Link 
+                <ExternalLink 
                     href={liveLink}
-                    target="_blank"
-                    rel="noreferrer noopener"
                     bg="blue.600"
                     color="white"
-                    _dark={{ bg: "blue.500" }}
                     px="4" 
                     py="2" 
                     display="flex" 
@@ -140,7 +143,6 @@ const Project = ({
                     borderRadius="md"
                     _hover={{ 
                         bg: "blue.700",
-                        _dark: { bg: "blue.600", color: "white" },
                         transform: "translateY(-1px)"
                     }}
                     transition="all 0.2s"
@@ -148,14 +150,12 @@ const Project = ({
                     fontWeight="medium"
                     textDecoration="none"
                 >
-                    Live Demo
-                </Link>
+                    {liveLinkText}<VisuallyHidden> for {title}</VisuallyHidden>
+                </ExternalLink>
             }
             { patchNotesLink && 
-                <Link 
+                <ExternalLink 
                     href={patchNotesLink}
-                    target="_blank"
-                    rel="noreferrer noopener"
                     bg="transparent"
                     color="gray.600"
                     _dark={{ color: "gray.300", borderColor: "gray.600" }}
@@ -178,14 +178,12 @@ const Project = ({
                     fontWeight="medium"
                     textDecoration="none"
                 >
-                    Patch Notes
-                </Link>
+                    Patch Notes<VisuallyHidden> for {title}</VisuallyHidden>
+                </ExternalLink>
             }
             { linkedinLink && 
-                <Link 
+                <ExternalLink 
                     href={linkedinLink}
-                    target="_blank"
-                    rel="noreferrer noopener"
                     bg="transparent"
                     color="gray.600"
                     _dark={{ color: "gray.300", borderColor: "gray.600" }}
@@ -208,8 +206,8 @@ const Project = ({
                     fontWeight="medium"
                     textDecoration="none"
                 >
-                    LinkedIn
-                </Link>
+                    LinkedIn<VisuallyHidden> page for {title}</VisuallyHidden>
+                </ExternalLink>
             }
                     </Flex>
                 </Box>
@@ -226,7 +224,7 @@ const Project = ({
                         <Image 
                             src={image}
                             loading="lazy"
-                            alt={title} 
+                            alt={imageAlt}
                             position="absolute"
                             top="30%"
                             right="-2.5rem"
