@@ -178,12 +178,12 @@ const Skills = () => {
                         
                         {/* Skills Column */}
                         <Box>
-                            <Box display="flex" flexWrap="wrap" gap="2">
+                            <Box as="ul" listStyleType="none" m="0" p="0" display="flex" flexWrap="wrap" gap="2">
                                 {category.skills.map((skill, skillIndex) => {
                                     const skillData = getSkillIcon(skill);
                                     return (
+                                        <li key={skillIndex}>
                                         <Badge
-                                            key={skillIndex}
                                             variant="subtle"
                                             colorScheme="blue"
                                             px="3"
@@ -205,6 +205,7 @@ const Skills = () => {
                                             )}
                                             {skill}
                                         </Badge>
+</li>
                                     );
                                 })}
                             </Box>
@@ -230,12 +231,12 @@ const Skills = () => {
                         </Heading>
                         
                         {/* Skills - Centered */}
-                        <Box display="flex" flexWrap="wrap" gap="2" justifyContent="center">
+                        <Box as="ul" listStyleType="none" m="0" p="0" display="flex" flexWrap="wrap" gap="2" justifyContent="center">
                             {category.skills.map((skill, skillIndex) => {
                                 const skillData = getSkillIcon(skill);
                                 return (
+                                    <li key={skillIndex}>
                                     <Badge
-                                        key={skillIndex}
                                         variant="subtle"
                                         colorScheme="blue"
                                         px="3"
@@ -257,6 +258,7 @@ const Skills = () => {
                                         )}
                                         {skill}
                                     </Badge>
+</li>
                                 );
                             })}
                         </Box>

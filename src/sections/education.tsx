@@ -57,7 +57,7 @@ const Education = () => {
                         <Text fontSize="sm" fontWeight="semibold" color="gray.600" _dark={{ color: "gray.400" }} mb="2">
                             Key Areas of Study:
                         </Text>
-                        <Flex flexWrap="wrap" gap="2">
+                        <Flex as="ul" listStyleType="none" m="0" p="0" flexWrap="wrap" gap="2">
                             {[
                                 "Algorithms & Data Structures",
                                 "Software Engineering",
@@ -70,8 +70,8 @@ const Education = () => {
                                 "Python Programming",
                                 "Java Programming"
                             ].map((subject, index) => (
-                                <Badge 
-                                    key={index}
+                                <li key={index}>
+                                <Badge
                                     colorScheme="purple" 
                                     variant="subtle"
                                     px="3"
@@ -83,6 +83,7 @@ const Education = () => {
                                 >
                                     {subject}
                                 </Badge>
+</li>
                             ))}
                         </Flex>
                     </Box>

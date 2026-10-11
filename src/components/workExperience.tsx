@@ -85,10 +85,10 @@ const WorkExperience = ({
                     <Text fontSize="sm" fontWeight="semibold" color="gray.600" _dark={{ color: "gray.400" }} mb="2">
                         Skills & Technologies:
                     </Text>
-                    <Flex flexWrap="wrap" gap="2">
+                    <Flex as="ul" listStyleType="none" m="0" p="0" flexWrap="wrap" gap="2">
                         {skills.map((skill, index) => (
-                            <Badge 
-                                key={index}
+                            <li key={index}>
+                            <Badge
                                 colorScheme="blue" 
                                 variant="subtle"
                                 px="3"
@@ -100,6 +100,7 @@ const WorkExperience = ({
                             >
                                 {skill}
                             </Badge>
+</li>
                         ))}
                     </Flex>
                 </Box>

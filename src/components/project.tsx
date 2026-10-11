@@ -79,10 +79,10 @@ const Project = ({
                                 <Text fontSize="md" fontWeight="semibold" color="gray.600" _dark={{ color: "gray.400" }} mb="2">
                                     Technologies Used:
                                 </Text>
-                                <Flex flexWrap="wrap" gap="2">
+                                <Flex as="ul" listStyleType="none" m="0" p="0" flexWrap="wrap" gap="2">
                                     {skills.map((skill, index) => (
-                                        <Badge 
-                                            key={index}
+                                        <li key={index}>
+                                        <Badge
                                             colorScheme="blue" 
                                             variant="subtle"
                                             px="3"
@@ -94,6 +94,7 @@ const Project = ({
                                         >
                                             {skill}
                                         </Badge>
+</li>
                                     ))}
                                 </Flex>
                             </Box>
