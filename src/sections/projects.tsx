@@ -34,7 +34,7 @@ export default Projects;
 
 const MigrationFeatures = (
     <Project 
-        title="Unnanounced Confluence DC Migration Features"
+        title="Unannounced Confluence DC Migration Features"
         description="Developing a set of features to assist users in migrating from Confluence Data Center to Confluence Cloud. These features include tools for data clean up, data migration, compatibility checks, and performance optimizations to ensure a smooth transition for users moving to the Cloud platform. More details coming soon when these features are released!"
         elementId="MigrationFeaturesProject"
         status="In Progress"
