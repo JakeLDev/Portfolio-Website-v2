@@ -3,7 +3,6 @@
 import React, { useCallback } from "react";
 import { Box, type BoxProps } from "@chakra-ui/react";
 import { useColorMode } from "./ui/color-mode";
-import { usePrefersReducedMotion } from "./ui/use-reduced-motion";
 import Particles from "react-particles";
 import type { Engine } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim";
@@ -24,9 +23,6 @@ const ParticleContainer: React.FC<ParticleContainerProps> = ({
   // Dynamic colors based on theme
   const particleColor = colorMode === "light" ? "#1e40af" : "#60a5fa"; // Dark blue in light mode, light blue in dark mode
   const linkColor = colorMode === "light" ? "#1e40af" : "#60a5fa";
-
-  // Static particles when the user prefers reduced motion (2.2.2)
-  const reducedMotion = usePrefersReducedMotion();
 
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
@@ -98,7 +94,7 @@ const ParticleContainer: React.FC<ParticleContainerProps> = ({
               width: 1,
             },
             move: {
-              enable: !reducedMotion,
+              enable: true,
               speed: 1,
               direction: "none",
               random: true,
