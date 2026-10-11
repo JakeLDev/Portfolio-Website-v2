@@ -3,7 +3,6 @@ import { Box, Text, Flex, Center, Image, Heading, VisuallyHidden } from '@chakra
 import ExternalLink from '../components/externalLink';
 import JakeLyellTiny from '../assets/JakeLyellTiny.jpg';
 import GithubButton from '../components/githubButton';
-import { usePrefersReducedMotion } from '../components/ui/use-reduced-motion';
 
 const Home = () => {
         // Function to calculate precise age with decimal places
@@ -15,16 +14,13 @@ const Home = () => {
             return ageInYears.toFixed(9); // 9 decimal places for maximum precision
         };
     
-        const reducedMotion = usePrefersReducedMotion();
         const [age, setAge] = useState<string>(calculateAge());
 
-        // Tick every 50ms for the constantly changing effect, unless the user
-        // prefers reduced motion (2.2.2), in which case show a static value.
+        // Tick every 50ms for the constantly changing effect
         useEffect(() => {
-            if (reducedMotion) return;
             const interval = setInterval(() => setAge(calculateAge()), 50);
             return () => clearInterval(interval);
-        }, [reducedMotion]);
+        }, []);
 
         return (
             <Box as="section" id="Page" aria-labelledby="home-title" tabIndex={-1} _focus={{ outline: "none" }} position="relative" pt={{ base: "20", md: "40" }}>
