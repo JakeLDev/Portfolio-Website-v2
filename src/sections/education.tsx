@@ -21,7 +21,7 @@ const Education = () => {
                             </Box>
                         )}
                         <Box flex="1">
-                            <Heading as="h2" size="lg" mb="2">
+                            <Heading as="h3" size="lg" mb="2">
                                 Bachelor of Science | Double Major in <strong><u>Computer Science</u></strong> and <strong><u>Data Science</u></strong>
                             </Heading>
                             <Flex flexDir="row" alignItems="center" gap="2" mb="2" flexWrap="wrap">

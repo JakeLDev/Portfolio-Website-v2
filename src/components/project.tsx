@@ -46,7 +46,7 @@ const Project = ({
                     flexDirection="column" 
                     width={{ base: "100%", lg: "50%" }}
                 >
-                <Heading as="h2" id={elementId} size="lg" mb="2">
+                <Heading as="h3" id={elementId} size="lg" mb="2">
                     {title}
                 </Heading>
                 <Flex flexDir="row" alignItems="center" gap="2" mb="4" flexWrap="wrap">

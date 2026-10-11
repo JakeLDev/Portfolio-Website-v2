@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Box, Text, Flex, Link, Center, Image } from '@chakra-ui/react';
+import { Box, Text, Flex, Link, Center, Image, Heading } from '@chakra-ui/react';
 import JakeLyellTiny from '../assets/JakeLyellTiny.jpg';
 import GithubButton from '../components/githubButton';
 
@@ -31,7 +31,7 @@ const Home = () => {
         
         const [age, setAge] = useState<string>(calculateAge());
         return (
-            <Box as="section" id="Page" tabIndex={-1} _focus={{ outline: "none" }} position="relative" pt={{ base: "20", md: "40" }}>
+            <Box as="section" id="Page" aria-labelledby="home-title" tabIndex={-1} _focus={{ outline: "none" }} position="relative" pt={{ base: "20", md: "40" }}>
                 <Box position="relative" zIndex="1">
                 <Box>
                 <Box p="8">
@@ -43,9 +43,9 @@ const Home = () => {
                             margin={"20px"}
                         />
                     </Center>
-                    <Text textAlign="center" width="80%" maxW="2xl" fontSize={{ base: "2xl", md: "4xl" }} fontWeight="bold" mx="auto" lineHeight="2">
+                    <Heading as="h1" id="home-title" textAlign="center" width="80%" maxW="2xl" fontSize={{ base: "2xl", md: "4xl" }} fontWeight="bold" mx="auto" lineHeight="2">
                         Hello! I'm Jake :)
-                    </Text>
+                    </Heading>
                         <Text textAlign="center" width="90%" maxW="3xl" fontSize={{ base: "lg", md: "2xl" }} fontWeight="bold" mx="auto" lineHeight="1.5">
                         I'm a{' '}
                         <Text 
