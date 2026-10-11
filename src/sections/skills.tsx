@@ -1,4 +1,4 @@
-import { Box, Badge, Heading } from '@chakra-ui/react';
+import { Box, Badge, Heading, Icon } from '@chakra-ui/react';
 import { 
     SiTypescript, SiJavascript, SiPython, SiReact, SiVuedotjs, SiHtml5, SiCss3,
     SiNodedotjs, SiPostgresql, SiMysql, SiMongodb, SiDocker, SiApachemaven,
@@ -197,11 +197,10 @@ const Skills = () => {
                                             userSelect="text"
                                         >
                                             {skillData && (
-                                                <Box 
+                                                <Icon 
                                                     as={skillData.icon} 
                                                     boxSize="20px"
                                                     color={skillData.color}
-                                                    display="inline-block"
                                                 />
                                             )}
                                             {skill}
@@ -250,11 +249,10 @@ const Skills = () => {
                                         userSelect="text"
                                     >
                                         {skillData && (
-                                            <Box 
+                                            <Icon 
                                                 as={skillData.icon} 
                                                 boxSize="16px"
                                                 color={skillData.color}
-                                                display="inline-block"
                                             />
                                         )}
                                         {skill}

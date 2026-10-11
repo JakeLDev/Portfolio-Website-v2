@@ -1,4 +1,4 @@
-import { Box, Text, Link, Icon } from "@chakra-ui/react";
+import { Box, Text, Link, Icon, VisuallyHidden } from "@chakra-ui/react";
 import { FaHeart } from 'react-icons/fa';
 
 const Footer = () => {
@@ -22,7 +22,7 @@ const Footer = () => {
                     _hover={{ color: "black", _dark: { color: "white" } }}
                     transition="color 0.2s"
                 >
-                    Built with <Icon as={FaHeart} color="red.600" _dark={{ color: "red.400" }} mx="1" /> using React & TypeScript
+                    Built with <Icon as={FaHeart} color="red.600" _dark={{ color: "red.400" }} mx="1" /><VisuallyHidden>love</VisuallyHidden> using React & TypeScript
                 </Link>
             </Text>
             <Text fontSize="sm" color="gray.700" _dark={{ color: "gray.400" }} mt="2">

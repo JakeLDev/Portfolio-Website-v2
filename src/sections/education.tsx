@@ -10,7 +10,7 @@ const Education = () => {
                             <Box flexShrink="0">
                                 <img 
                                     src={UWALogo} 
-                                    alt="UWA logo" 
+                                    alt="" 
                                     style={{ 
                                         maxWidth: '100px', 
                                         maxHeight: '100px', 

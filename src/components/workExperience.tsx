@@ -32,7 +32,7 @@ const WorkExperience = ({
                     <Box flexShrink="0">
                         <img 
                             src={image} 
-                            alt={`${company} logo`} 
+                            alt="" 
                             style={{ 
                                 maxWidth: '100px', 
                                 maxHeight: imageHeight, 

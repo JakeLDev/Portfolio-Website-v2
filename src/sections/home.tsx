@@ -34,7 +34,7 @@ const Home = () => {
                     <Center>
                         <Image 
                             src={ JakeLyellTiny }
-                            alt="Profile Picture"
+                            alt="Jake Lyell"
                             height="250px"
                             margin={"20px"}
                         />

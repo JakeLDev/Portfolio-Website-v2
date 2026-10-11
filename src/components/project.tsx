@@ -8,6 +8,7 @@ interface ProjectProps {
     liveLink?: string;
     patchNotesLink?: string;
     image?: string;
+    imageAlt?: string;
     imageHeight?: string;
     linkedinLink?: string;
     skills?: string[];
@@ -23,6 +24,7 @@ const Project = ({
     liveLink,
     patchNotesLink,
     image,
+    imageAlt = "",
     linkedinLink,
     skills,
     duration,
@@ -223,7 +225,7 @@ const Project = ({
                     >
                         <Image 
                             src={image} 
-                            alt={title} 
+                            alt={imageAlt} 
                             position="absolute"
                             top="30%"
                             right="-2.5rem"
