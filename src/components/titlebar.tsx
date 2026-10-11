@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Box, Flex, IconButton, CloseButton, Drawer, Portal, Link } from '@chakra-ui/react';
 import { ColorModeButton } from "./ui/color-mode";
 import { FaBars } from 'react-icons/fa';
@@ -54,9 +54,6 @@ const NavList = ({ activeSection, direction, onNavigate }: NavListProps) => (
 const TitleBar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState("Page");
-    // Section chosen in the drawer; navigated to once the drawer has closed so
-    // the drawer's focus-restore to the hamburger can't steal focus from it.
-    const pendingSection = useRef<string | null>(null);
 
     // Scroll spy functionality
     useEffect(() => {
@@ -185,12 +182,6 @@ const TitleBar = () => {
                     size="xs"
                     open={isMenuOpen}
                     onOpenChange={(e) => setIsMenuOpen(e.open)}
-                    onExitComplete={() => {
-                        if (pendingSection.current) {
-                            window.location.hash = pendingSection.current;
-                            pendingSection.current = null;
-                        }
-                    }}
                 >
                     <Box position="fixed" top="3" left="3" zIndex="1001">
                         <Drawer.Trigger asChild>
@@ -222,7 +213,7 @@ const TitleBar = () => {
                                             activeSection={activeSection}
                                             direction="column"
                                             onNavigate={(id) => {
-                                                pendingSection.current = id;
+                                                window.location.hash = id;
                                                 setIsMenuOpen(false);
                                             }}
                                         />
@@ -238,13 +229,14 @@ const TitleBar = () => {
             </Box>
 
             {/* Color Mode Button - after the nav in the DOM so tab order matches the visual order */}
-            <Box position="fixed" top="5" right="5" zIndex="1000">
+            <Box position="fixed" top={{ base: "3", md: "2" }} right="5" zIndex="1000">
                 <ColorModeButton 
                     bg="bg/90" 
                     borderColor={"blackAlpha.200"}
                     borderWidth="1px"
                     borderRadius="md" 
                     style={{ backdropFilter: "blur(10px)" }} 
+                    boxSize={{ base: "9", md: "46px" }}
                 />
             </Box>
         </>
