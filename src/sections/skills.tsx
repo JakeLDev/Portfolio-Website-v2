@@ -1,16 +1,18 @@
 import { Box, Badge, Heading, Icon } from '@chakra-ui/react';
 import { 
-    SiTypescript, SiJavascript, SiPython, SiReact, SiVuedotjs, SiHtml5, SiCss3,
+    SiTypescript, SiJavascript, SiPython, SiReact, SiVuedotjs, SiHtml5, SiCss,
     SiNodedotjs, SiPostgresql, SiMysql, SiMongodb, SiDocker, SiApachemaven,
-    SiGit, SiGithub, SiLinux, SiIntellijidea, SiJira, SiAmazonwebservices,
-    SiConfluence, SiPostman, SiNpm, SiSpringboot, SiGraphql, SiAwslambda, SiOpensearch,
-    SiRedux, SiWebpack, SiVite, SiJupyter, SiPandas, SiNumpy, SiScikitlearn, SiOpenai,
+    SiGit, SiGithub, SiLinux, SiIntellijidea, SiJira,
+    SiConfluence, SiPostman, SiNpm, SiSpringboot, SiGraphql, SiOpensearch,
+    SiRedux, SiWebpack, SiVite, SiJupyter, SiPandas, SiNumpy, SiScikitlearn,
     SiChakraui, SiKubernetes, SiJenkins, SiGithubactions, SiServerless, SiApachelucene, SiBamboo, SiBitbucket, SiGithubcopilot
 } from 'react-icons/si';
 import { 
-    FaJava, FaDatabase, FaCloud, FaCode, FaTools, FaCogs, FaChartBar,
+    FaAws, FaJava, FaDatabase, FaCloud, FaCode, FaTools, FaCogs, FaChartBar,
     FaProjectDiagram, FaUsers, FaCheckCircle, FaBug, FaLayerGroup
 } from 'react-icons/fa';
+import { TbLambda } from "react-icons/tb";
+import { RiOpenaiFill } from "react-icons/ri";
 import type { IconType } from 'react-icons';
 
 const Skills = () => {
@@ -34,7 +36,7 @@ const Skills = () => {
             // Frontend
             "React.js": { icon: SiReact, color: "#61DAFB" },
             "HTML5": { icon: SiHtml5, color: "#E34F26" },
-            "CSS3": { icon: SiCss3, color: "#1572B6" },
+            "CSS3": { icon: SiCss, color: "#1572B6" },
             "Chakra UI": { icon: SiChakraui, color: "#319795" },
             "Vue.js": { icon: SiVuedotjs, color: "#4FC08D" },
             "Redux": { icon: SiRedux, color: "#764ABC" },
@@ -42,7 +44,7 @@ const Skills = () => {
             "Webpack": { icon: SiWebpack, color: "#8DD6F9" },
             
             // DevOps
-            "AWS": { icon: SiAmazonwebservices, color: "#FF9900" },
+            "AWS": { icon: FaAws, color: "#FF9900" },
             "Docker": { icon: SiDocker, color: "#2496ED" },
             "Git": { icon: SiGit, color: "#F05032" },
             "GitHub Actions": { icon: SiGithubactions, color: "#2088FF" },
@@ -69,14 +71,14 @@ const Skills = () => {
             "npm": { icon: SiNpm, color: "#CB3837" },
             "Maven": { icon: SiApachemaven, color: "#C71A36" },
             // "Cursor AI": { icon: null, color: "#6B7280" }, // Placeholder for Cursor AI
-            "ChatGPT": { icon: SiOpenai, color: "#10A37F" },
+            "ChatGPT": { icon: RiOpenaiFill, color: "#10A37F" },
             
             // Generic fallbacks
             "REST APIs": { icon: FaCode, color: "#6B7280" },
             "SQL": { icon: FaDatabase, color: "#336791" },
             "Microservices": { icon: FaLayerGroup, color: "#6B7280" },
             "CI/CD": { icon: FaCogs, color: "#6B7280" },
-            "AWS Lambda": { icon: SiAwslambda, color: "#FF9900" },
+            "AWS Lambda": { icon: TbLambda, color: "#FF9900" },
             "Infrastructure as Code": { icon: FaCloud, color: "#6B7280" },
             "Cloud Computing": { icon: FaCloud, color: "#6B7280" },
             "SciPy": { icon: FaChartBar, color: "#8CAAE6" },

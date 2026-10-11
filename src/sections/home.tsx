@@ -21,7 +21,6 @@ const Home = () => {
         // Tick every 50ms for the constantly changing effect, unless the user
         // prefers reduced motion (2.2.2), in which case show a static value.
         useEffect(() => {
-            setAge(calculateAge());
             if (reducedMotion) return;
             const interval = setInterval(() => setAge(calculateAge()), 50);
             return () => clearInterval(interval);

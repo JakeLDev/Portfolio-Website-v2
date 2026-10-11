@@ -15,7 +15,6 @@
     "jsx": "react-jsx",
 
     /* Path mapping */
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
       "chakra-theme/*": ["./node_modules/@chakra-ui/react/dist/types/theme/*"]
