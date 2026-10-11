@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useRef, useState } from "react";
-import { Box, IconButton, type BoxProps } from "@chakra-ui/react";
+import { Box, IconButton, Portal, type BoxProps } from "@chakra-ui/react";
 import { FaPause, FaPlay } from "react-icons/fa";
 import { useColorMode } from "./ui/color-mode";
 import { usePrefersReducedMotion } from "./ui/use-reduced-motion";
@@ -147,7 +147,9 @@ const ParticleContainer: React.FC<ParticleContainerProps> = ({
         }}
       />
     </Box>
+      {/* Portalled to the end of <body> so its tab stop matches its bottom-corner position */}
       {!reducedMotion && (
+        <Portal>
         <IconButton
           aria-label="Pause background animation"
           aria-pressed={paused}
@@ -164,6 +166,7 @@ const ParticleContainer: React.FC<ParticleContainerProps> = ({
         >
           {paused ? <FaPlay /> : <FaPause />}
         </IconButton>
+        </Portal>
       )}
     </>
   );
