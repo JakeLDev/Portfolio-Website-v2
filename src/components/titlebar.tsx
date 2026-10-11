@@ -116,7 +116,7 @@ const TitleBar = () => {
                     minWidth="465px" 
                     m="0" 
                     zIndex="999"
-                    background={"whiteAlpha.200"} 
+                    bg="bg/90" 
                     borderColor={"blackAlpha.300"} 
                     borderWidth="1px" 
                     borderRadius="md" 
@@ -145,7 +145,7 @@ const TitleBar = () => {
                         <Drawer.Trigger asChild>
                             <IconButton
                                 aria-label="Menu"
-                                background={"whiteAlpha.200"}
+                                bg="bg/90"
                                 borderColor={"blackAlpha.200"}
                                 borderWidth="1px"
                                 borderRadius="md"
@@ -189,7 +189,7 @@ const TitleBar = () => {
             {/* Color Mode Button - after the nav in the DOM so tab order matches the visual order */}
             <Box position="fixed" top="5" right="5" zIndex="1000">
                 <ColorModeButton 
-                    background={"whiteAlpha.200"} 
+                    bg="bg/90" 
                     borderColor={"blackAlpha.200"}
                     borderWidth="1px"
                     borderRadius="md" 

@@ -19,13 +19,13 @@ const Footer = () => {
                     color="gray.800"
                     textDecoration={"underline"}
                     _dark={{ color: "gray.300" }}
-                    _hover={{ color: "white" }}
+                    _hover={{ color: "black", _dark: { color: "white" } }}
                     transition="color 0.2s"
                 >
-                    Built with <Icon as={FaHeart} color="red.400" mx="1" /> using React & TypeScript
+                    Built with <Icon as={FaHeart} color="red.600" _dark={{ color: "red.400" }} mx="1" /> using React & TypeScript
                 </Link>
             </Text>
-            <Text fontSize="sm" color="gray.500" _dark={{ color: "gray.400" }} mt="2">
+            <Text fontSize="sm" color="gray.700" _dark={{ color: "gray.400" }} mt="2">
                 Updated July 2025
             </Text>
         </Box>

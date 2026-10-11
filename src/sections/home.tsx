@@ -53,7 +53,7 @@ const Home = () => {
                             fontFamily="'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace"
                             fontSize={{ base: "lg", md: "2xl" }}
                             fontWeight="bold"
-                            color="green.500" 
+                            color="green.700" 
                             _dark={{ color: "green.400", bg: "gray.800", borderColor: "gray.600" }}
                             bg="gray.100"
                             px="2"
@@ -69,8 +69,10 @@ const Home = () => {
                         
                         <Link 
                             color="#0052CC" 
+                            _dark={{ color: "blue.300" }}
+                            _hover={{ color: "blue.800", _dark: { color: "blue.200" } }}
                             fontWeight="extrabold"
-                            textShadow="1px 1px 1px lightgray, -1px 1px 1px lightgray, -1px -1px 1px lightgray, 1px -1px 1px lightgray"
+                            textDecoration="underline"
                             href='https://www.atlassian.com/' 
                             target="_blank"
                         >
@@ -94,7 +96,7 @@ const Home = () => {
                     <Link 
                         id='linkedin-button' 
                         href="https://www.linkedin.com/in/jake-lyell/"
-                        bg="blue.500"
+                        bg="blue.600"
                         color="white"
                         px="7"
                         py="3"
@@ -109,11 +111,11 @@ const Home = () => {
                         outlineColor: 'blue.600',
                         _dark: { outlineColor: 'blue.300' }
             }}
-                        _hover={{ transform: 'scale(1.05)', color: 'purple.200' }}
+                        _hover={{ transform: 'scale(1.05)', bg: 'blue.700' }}
                         _active={{ transform: 'scale(1.05)' }}
                         transition="all 0.2s"
                         borderWidth="2px"
-                        borderColor="blue.600"
+                        borderColor="blue.700"
                         target="_blank"
                     >
                         LinkedIn

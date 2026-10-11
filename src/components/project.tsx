@@ -131,7 +131,6 @@ const Project = ({
                     rel="noreferrer noopener"
                     bg="blue.600"
                     color="white"
-                    _dark={{ bg: "blue.500" }}
                     px="4" 
                     py="2" 
                     display="flex" 
@@ -140,7 +139,6 @@ const Project = ({
                     borderRadius="md"
                     _hover={{ 
                         bg: "blue.700",
-                        _dark: { bg: "blue.600", color: "white" },
                         transform: "translateY(-1px)"
                     }}
                     transition="all 0.2s"

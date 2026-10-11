@@ -30,13 +30,14 @@ const Education = () => {
                                     fontSize="xl"
                                     fontWeight="semibold"
                                     color="blue.600"
-                                    _hover={{ color: 'blue.800', textDecoration: 'underline' }}
+                                    _dark={{ color: "blue.300" }}
+                                    _hover={{ color: 'blue.800', textDecoration: 'underline', _dark: { color: 'blue.200' } }}
                                     target="_blank"
                                     rel="noreferrer noopener"
                                 >
                                     University of Western Australia (UWA)
                                 </Link>
-                                <Text fontSize="md" color="gray.400" _dark={{ color: "gray.300" }}>
+                                <Text fontSize="md" color="gray.600" _dark={{ color: "gray.300" }}>
                                     • Perth, Australia
                                 </Text>
                             </Flex>

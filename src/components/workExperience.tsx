@@ -53,7 +53,8 @@ const WorkExperience = ({
                                 fontSize="xl"
                                 fontWeight="semibold"
                                 color="blue.600"
-                                _hover={{ color: 'blue.800', textDecoration: 'underline' }}
+                                _dark={{ color: "blue.300" }}
+                                _hover={{ color: 'blue.800', textDecoration: 'underline', _dark: { color: 'blue.200' } }}
                                 target="_blank"
                                 rel="noreferrer noopener"
                             >
@@ -65,7 +66,7 @@ const WorkExperience = ({
                             </Text>
                         )}
                         {location && (
-                            <Text fontSize="md" color="gray.400" _dark={{ color: "gray.300" }}>
+                            <Text fontSize="md" color="gray.600" _dark={{ color: "gray.300" }}>
                                 • {location}
                             </Text>
                         )}
@@ -82,7 +83,7 @@ const WorkExperience = ({
             
             {skills && skills.length > 0 && (
                 <Box>
-                    <Text fontSize="sm" fontWeight="semibold" color="gray.400" mb="2">
+                    <Text fontSize="sm" fontWeight="semibold" color="gray.600" _dark={{ color: "gray.400" }} mb="2">
                         Skills & Technologies:
                     </Text>
                     <Flex flexWrap="wrap" gap="2">
